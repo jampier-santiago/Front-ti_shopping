@@ -1,20 +1,12 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
-import styled from "styled-components";
-import tw from "twin.macro";
-
 import { BrowserRouter } from "react-router-dom";
+import useRouter from "./router/router";
 
 function App() {
-  const StyledForm = styled.nav`
-    & {
-      ${tw`bg-red-500`}
-    }
-  `;
+  const Router = useRouter();
 
-  return <StyledForm>HOLA</StyledForm>;
+  return <BrowserRouter>{Router}</BrowserRouter>;
 }
 
 export default App;

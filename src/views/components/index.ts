@@ -1,3 +1,7 @@
+import Button from "./Button";
+
 const useComponents = () => {
-  return {};
+  return { Button };
 };
+
+export default useComponents;
