@@ -4,3 +4,4 @@ import Login from "./Login";
 const usePages = () => {
   return { Home, Login };
 };
+export default usePages;
