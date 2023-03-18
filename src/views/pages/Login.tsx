@@ -2,7 +2,7 @@ const Login = () => {
   return (
     <main>
       <section>
-        <h1></h1>
+        <h1>OPrueba de que funciona</h1>
       </section>
     </main>
   );

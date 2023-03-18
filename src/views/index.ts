@@ -1,7 +1,8 @@
 import Home from "./pages/Home";
+import usePages from "./pages";
 
 const useViews = () => {
-  return { Home };
+  return { usePages };
 };
 
 export default useViews;
