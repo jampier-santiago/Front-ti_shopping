@@ -1,8 +1,7 @@
-import useHome from "./home";
-import useProducts from "./products";
+import useHomeControllers from "./home.controllers";
 
 const useControllers = () => {
-  return { useHome, useProducts };
+  return { useHomeControllers };
 };
 
 export default useControllers;
