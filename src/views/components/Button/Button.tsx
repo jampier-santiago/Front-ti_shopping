@@ -8,10 +8,10 @@ const Button: FC<Props> = ({
   onClick,
   type = "button",
 }) => {
-  const { StylesButton } = useStyles();
+  const { StylesButton, StylesText } = useStyles();
   return (
     <StylesButton id={id} className={className} onClick={onClick} type={type}>
-      {text}
+      <StylesText>{text}</StylesText>
     </StylesButton>
   );
 };
