@@ -19,25 +19,33 @@ const Login = () => {
     StyleForm,
     StyleRow,
     StyleRigthtSection,
+    StyleErrorInput,
   } = useLoginStyles();
 
   //constrollers
   const { useLoginControllers } = useControllers();
-  const { redirectUrl, onSubmit } = useLoginControllers();
+  const { redirectUrl, onSubmit, handleSubmit, register, errors } =
+    useLoginControllers();
 
   return (
     <StyledMain>
       {/* form */}
       <StyleLeftSection>
         <StyleTitle>Sign In</StyleTitle>
-        <StyleForm onSubmit={onSubmit}>
+        <StyleForm onSubmit={handleSubmit(onSubmit)}>
           <StyleRow>
             <Input
-              id="nameUser"
+              id="emailUser"
               type={"email"}
               placeholder="Escriba su usuario"
               textLabel="Nombre de usuario"
+              register={register}
+              required
             />
+
+            {errors.emailUser && (
+              <StyleErrorInput>Este campo es requerido</StyleErrorInput>
+            )}
           </StyleRow>
           <StyleRow>
             <Input
@@ -45,7 +53,12 @@ const Login = () => {
               type={"password"}
               placeholder="Escriba su contraseña"
               textLabel="Contraseña"
+              register={register}
+              required
             />
+            {errors.password && (
+              <StyleErrorInput>Este campo es requerido</StyleErrorInput>
+            )}
           </StyleRow>
           <StyleRow>
             <Button text="Ingresar" type="submit" />

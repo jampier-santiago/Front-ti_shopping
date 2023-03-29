@@ -25,6 +25,9 @@ const StyleRow = styled.div`
   ${tw`w-full mb-8`}
 `;
 
+const StyleErrorInput = styled.span`
+  ${tw`text-red-500 font-bold text-lg mb-4`}
+`;
 const useLoginStyles = () => {
   return {
     StyledMain,
@@ -33,6 +36,7 @@ const useLoginStyles = () => {
     StyleForm,
     StyleRow,
     StyleRigthtSection,
+    StyleErrorInput,
   };
 };
 

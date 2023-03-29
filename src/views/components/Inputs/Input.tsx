@@ -8,12 +8,19 @@ const Input: FC<Props> = ({
   textLabel,
   className,
   type = "text",
+  register,
+  required,
 }) => {
   const { StylesInput, StylesTxtLabel, StylesRow } = useStyles();
   return (
     <StylesRow className={className}>
       <StylesTxtLabel>{textLabel}</StylesTxtLabel>
-      <StylesInput type={type} placeholder={placeholder} id={id} />
+      <StylesInput
+        {...register(id, { required })}
+        type={type}
+        placeholder={placeholder}
+        id={id}
+      />
     </StylesRow>
   );
 };
