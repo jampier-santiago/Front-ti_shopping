@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledMain = styled.main`
-  ${tw`box-border flex w-full `}
+  ${tw`box-border flex w-full flex-col lg:flex-row`}
 `;
 
 const StyleLeftSection = styled.section`
@@ -10,7 +10,7 @@ const StyleLeftSection = styled.section`
 `;
 
 const StyleRigthtSection = styled.section`
-  ${tw`w-4/6 h-screen bg-center bg-cover`}
+  ${tw`lg:w-4/6 h-screen bg-center bg-cover hidden lg:block`}
 `;
 
 const StyleTitle = styled.h1`
