@@ -1,7 +1,8 @@
 import useHomeControllers from "./home.controllers";
+import useLoginControllers from "./login.constrollers";
 
 const useControllers = () => {
-  return { useHomeControllers };
+  return { useHomeControllers, useLoginControllers };
 };
 
 export default useControllers;
