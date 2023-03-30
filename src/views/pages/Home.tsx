@@ -18,15 +18,14 @@ const Home = () => {
 
   return (
     <StyledMain>
-      <nav>HOME HOME HOME HOME</nav>
+  
 
-      <StylesTitle>Hola</StylesTitle>
+      <StylesTitle>TI_Shopping</StylesTitle>
 
       <section></section>
 
       <article></article>
 
-      <footer></footer>
     </StyledMain>
   );
 };
