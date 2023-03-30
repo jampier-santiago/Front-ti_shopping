@@ -4,13 +4,14 @@ import useViews from "../views";
 
 const useRouter = () => {
   const { usePages } = useViews();
-  const { Home, Login } = usePages();
+  const { Home, Login, ShopView } = usePages();
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Login />} />
+      <Route path="/shopView" element={<ShopView />} />
 
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
