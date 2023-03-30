@@ -18,7 +18,15 @@ const StyleTitle = styled.h1`
 `;
 
 const StyleForm = styled.form`
-  ${tw`box-border mt-10`}
+  ${tw`box-border mt-10 max-h-[70vh] overflow-auto  `}
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    ${tw`bg-primary `}
+    border-radius: 25px;
+  }
 `;
 
 const StyleRow = styled.div`
