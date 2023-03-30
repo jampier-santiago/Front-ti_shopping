@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import useViews from "../views";
 
@@ -10,6 +10,9 @@ const useRouter = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Login />} />
+
+      <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
