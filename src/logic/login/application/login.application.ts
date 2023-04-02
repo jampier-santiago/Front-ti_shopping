@@ -1,9 +1,15 @@
+// Packages
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useState, useEffect } from "react";
 
-const useLoginControllers = () => {
+// Endpoints
+import useEndpointsLogin from "../infrastructure/login.endpoints";
+
+const useLoginApplication = () => {
+  // Endpoints
+  const { makeLogin } = useEndpointsLogin();
+
   //Router
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,11 +26,7 @@ const useLoginControllers = () => {
   const [updateRoute, setUpdateRoute] = useState(false);
   //functions
   const onSubmit = (data: any) => {
-    const params = { email: data.emailUser, password: data.password };
-    axios
-      .get(`${process.env.REACT_APP_ENDPOINT_URL}/api/auth/login`, {
-        params,
-      })
+    makeLogin({ email: data.emailUser, password: data.password })
       .then(() => {
         console.log("Login CORRECTO");
         navigate("/");
@@ -42,6 +44,7 @@ const useLoginControllers = () => {
   useEffect(() => {
     const path = location.pathname.replace("/", "");
     setIsLogin(path === "login");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateRoute]);
 
   return {
@@ -54,4 +57,4 @@ const useLoginControllers = () => {
     setUpdateRoute,
   };
 };
-export default useLoginControllers;
+export default useLoginApplication;

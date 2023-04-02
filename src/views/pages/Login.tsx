@@ -1,9 +1,14 @@
+// Views
 import useViews from "..";
+
+// Styles
 import useStyles from "styles";
-import useControllers from "controllers";
+
+// Controllers
+import useLoginApplication from "logic/login/application/login.application";
 
 //assets
-import bgRight from "../../assets/img/login.jpg";
+import bgRight from "assets/img/login.jpg";
 
 const Login = () => {
   //components
@@ -23,7 +28,6 @@ const Login = () => {
   } = useLoginStyles();
 
   //constrollers
-  const { useLoginControllers } = useControllers();
   const {
     redirectUrl,
     onSubmit,
@@ -32,7 +36,7 @@ const Login = () => {
     errors,
     isLogin,
     setUpdateRoute,
-  } = useLoginControllers();
+  } = useLoginApplication();
 
   return (
     <StyledMain>

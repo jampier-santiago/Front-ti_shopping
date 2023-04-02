@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StylesButton = styled.button`
-  ${tw`box-border px-4 py-2 bg-primary border-0 rounded-md w-full cursor-pointer`}
+  ${tw`box-border w-full px-4 py-2 border-0 rounded-md cursor-pointer bg-primary`}
   &:hover {
     ${tw`bg-white`}
   }
@@ -12,7 +12,7 @@ const StylesButton = styled.button`
 `;
 
 const StylesText = styled.span`
-  ${tw`text-white text-base font-semibold`}
+  ${tw`text-base font-semibold text-white`}
 `;
 
 const useStyles = () => {
