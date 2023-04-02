@@ -4,7 +4,6 @@ import useControllers from "controllers";
 
 //assets
 import bgRight from "../../assets/img/login.jpg";
-import { useState } from "react";
 
 const Login = () => {
   //components

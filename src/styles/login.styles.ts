@@ -9,7 +9,7 @@ const StyleLeftSection = styled.section`
   ${tw`lg:w-2/6 h-screen bg-black box-border p-5 flex flex-col justify-center`}
 `;
 
-const StyleRigthtSection = styled.section`
+const StyleRigthtSection = styled.div`
   ${tw`lg:w-4/6 h-screen bg-center bg-cover hidden lg:block`}
 `;
 
