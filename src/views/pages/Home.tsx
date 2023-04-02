@@ -1,7 +1,6 @@
 import useStyles from "../../styles";
 
 // Controllers
-import useControllers from "../../controllers";
 import useComponents from "../components/index";
 
 const Home = () => {
@@ -9,8 +8,6 @@ const Home = () => {
   const { Button } = useComponents();
 
   // Controllers
-  const { useHomeControllers } = useControllers();
-  const { sumarNumeros } = useHomeControllers();
 
   // Styles
   const { useHomeStyles } = useStyles();
