@@ -1,6 +1,12 @@
+// packages
 import { Routes, Route, Navigate } from "react-router-dom";
 
+// Router
+import RouterAdmin from "./RouterAdmin";
+
+// Components
 import useViews from "../views";
+import PrivateRoute from "./PrivateRoute";
 
 const useRouter = () => {
   const { usePages } = useViews();
@@ -11,6 +17,10 @@ const useRouter = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Login />} />
+      <Route
+        path="/admin/*"
+        element={<PrivateRoute element={<RouterAdmin />} />}
+      />
 
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>

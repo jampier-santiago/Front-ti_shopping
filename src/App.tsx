@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import useRouter from "./router/router";
 
-import { store } from "./store/store";
+import { store } from "./redux/store";
 
 function App() {
   const Router = useRouter();
