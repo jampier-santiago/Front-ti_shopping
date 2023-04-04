@@ -4,7 +4,7 @@ import useViews from "../views";
 
 const useRouter = () => {
   const { usePages } = useViews();
-  const { Home, Login, ShopView } = usePages();
+  const { Home, Login, ShopView, Shop } = usePages();
 
   return (
     <Routes>
@@ -12,6 +12,7 @@ const useRouter = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Login />} />
       <Route path="/shopView" element={<ShopView />} />
+      <Route path="/shop/:id" element={<Shop />} />
 
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>

@@ -1,12 +1,15 @@
 import useViews from "..";
 import useStyles from "styles";
-import useControllers from "controllers";
 import Tilt from "react-parallax-tilt";
+import { Link } from "react-router-dom";
 
-//assets
-import bgRight from "../../assets/img/Logo_Exito_colombia.png";
+//controller
+import useShopsApplications from "logic/shops/application/shops.application";
 
 const ShopView = () => {
+  //constroller
+  const { stores } = useShopsApplications();
+
   //components
   const { useComponents } = useViews();
   const { Button, Input } = useComponents();
@@ -22,10 +25,6 @@ const ShopView = () => {
     StyleTittle,
     StyleSubTittle,
   } = useShopViewStyles();
-
-  //constrollers
-  const { useShopViewControllers } = useControllers();
-  const {} = useShopViewControllers();
 
   return (
     <main>
@@ -59,36 +58,16 @@ const ShopView = () => {
       </svg> */}
 
       <StyleSectionShop>
-        <Tilt tiltReverse>
-          <StyleSquareShop
-            style={{ backgroundImage: `url('${bgRight}')` }}
-          ></StyleSquareShop>
-        </Tilt>
-        <Tilt tiltReverse>
-          <StyleSquareShop
-            style={{ backgroundImage: `url('${bgRight}')` }}
-          ></StyleSquareShop>
-        </Tilt>
-        <Tilt tiltReverse>
-          <StyleSquareShop
-            style={{ backgroundImage: `url('${bgRight}')` }}
-          ></StyleSquareShop>
-        </Tilt>
-        <Tilt tiltReverse>
-          <StyleSquareShop
-            style={{ backgroundImage: `url('${bgRight}')` }}
-          ></StyleSquareShop>
-        </Tilt>
-        <Tilt tiltReverse>
-          <StyleSquareShop
-            style={{ backgroundImage: `url('${bgRight}')` }}
-          ></StyleSquareShop>
-        </Tilt>
-        <Tilt tiltReverse>
-          <StyleSquareShop
-            style={{ backgroundImage: `url('${bgRight}')` }}
-          ></StyleSquareShop>
-        </Tilt>
+        {stores &&
+          stores.map((shop) => (
+            <Link to={`/shop/${shop?.id}`}>
+              <Tilt tiltReverse>
+                <StyleSquareShop
+                  style={{ backgroundImage: `url('${shop?.logo}')` }}
+                ></StyleSquareShop>
+              </Tilt>
+            </Link>
+          ))}
       </StyleSectionShop>
     </main>
   );
