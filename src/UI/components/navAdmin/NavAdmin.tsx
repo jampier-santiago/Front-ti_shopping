@@ -34,7 +34,7 @@ const NavAdmin = () => {
   const { Button } = useComponents();
 
   // Logic
-  const { handleStateModal, userName, showModal } = useAdminLayout();
+  const { handleStateModal, userName, showModal, role } = useAdminLayout();
 
   return (
     <StyledContainer>
@@ -52,12 +52,17 @@ const NavAdmin = () => {
           <StyledLi>
             <StyledLink to={"/"}>Mi cuenta</StyledLink>
           </StyledLi>
-          <StyledLi>
-            <StyledLink to={"/"}>Usuarios</StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink to={"/"}>Tiendas</StyledLink>
-          </StyledLi>
+
+          {role === "ADMIN" && (
+            <>
+              <StyledLi>
+                <StyledLink to={"/"}>Usuarios</StyledLink>
+              </StyledLi>
+              <StyledLi>
+                <StyledLink to={"/"}>Tiendas</StyledLink>
+              </StyledLi>
+            </>
+          )}
         </StyledContainerLinks>
       </StyledModal>
 
@@ -84,12 +89,17 @@ const NavAdmin = () => {
         <StyledLi>
           <StyledLink to={"/"}>Mi cuenta</StyledLink>
         </StyledLi>
-        <StyledLi>
-          <StyledLink to={"/"}>Usuarios</StyledLink>
-        </StyledLi>
-        <StyledLi>
-          <StyledLink to={"/"}>Tiendas</StyledLink>
-        </StyledLi>
+
+        {role === "ADMIN" && (
+          <>
+            <StyledLi>
+              <StyledLink to={"/"}>Usuarios</StyledLink>
+            </StyledLi>
+            <StyledLi>
+              <StyledLink to={"/"}>Tiendas</StyledLink>
+            </StyledLi>
+          </>
+        )}
       </StyledContainerLinks>
 
       <StyledBottomContainer>
