@@ -9,7 +9,7 @@ interface Props {
   element: JSX.Element;
 }
 
-const PrivateRoute: FC<Props> = ({ element }: Props) => {
+const PrivateRoute: FC<Props> = ({ element }) => {
   const { id } = useSelector((state: RootState) => state.auth);
 
   return id ? <>{element}</> : <Navigate to={"/login"} />;

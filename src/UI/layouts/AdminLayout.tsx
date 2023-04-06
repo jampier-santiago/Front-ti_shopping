@@ -1,0 +1,30 @@
+// Packages
+import { FC } from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
+
+// Components
+import useComponents from "UI/components";
+
+interface Props {
+  children: any;
+}
+
+const StyledContainer = styled.main`
+  ${tw`box-border flex flex-row w-full flex-nowrap`}
+`;
+
+const AdminLayout: FC<Props> = ({ children }) => {
+  const { NavAdmin } = useComponents();
+
+  return (
+    <>
+      <StyledContainer>
+        <NavAdmin />
+        {children}
+      </StyledContainer>
+    </>
+  );
+};
+
+export default AdminLayout;

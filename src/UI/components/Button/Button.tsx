@@ -7,10 +7,17 @@ const Button: FC<Props> = ({
   text,
   onClick,
   type = "button",
+  variant = "primary",
 }) => {
   const { StylesButton, StylesText } = useStyles();
   return (
-    <StylesButton id={id} className={className} onClick={onClick} type={type}>
+    <StylesButton
+      id={id}
+      className={className}
+      onClick={onClick}
+      type={type}
+      variant={variant}
+    >
       <StylesText>{text}</StylesText>
     </StylesButton>
   );

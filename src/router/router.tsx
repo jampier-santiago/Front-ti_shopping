@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import RouterAdmin from "./RouterAdmin";
 
 // Components
-import useViews from "../views";
+import useViews from "../UI";
 import PrivateRoute from "./PrivateRoute";
 
 const useRouter = () => {

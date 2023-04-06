@@ -1,23 +1,39 @@
 // Packages
 import { Route, Routes, Navigate } from "react-router-dom";
 
+// Layouts
+import useLayouts from "UI/layouts";
+
 // Pages
-import useViews from "../views";
+import useViews from "../UI";
 
 const RouterAdmin = () => {
-  const { usePages } = useViews();
-  const { usePagesAdmin, Login } = usePages();
-  const { Statistics } = usePagesAdmin();
+  // Layouts
+  const { AdminLayout } = useLayouts();
 
-  // Selector
-  const data = localStorage.getItem("auth")
-    ? JSON.parse(localStorage.getItem("auth") || "")
-    : null;
+  // Pages
+  const { usePages } = useViews();
+  const { usePagesAdmin } = usePages();
+  const { Statistics } = usePagesAdmin();
 
   return (
     <Routes>
-      <Route path="/estadisticas" element={<Statistics />} />
-      <Route path="/productos" element={<Statistics />} />
+      <Route
+        path="/estadisticas"
+        element={
+          <AdminLayout>
+            <Statistics />
+          </AdminLayout>
+        }
+      />
+      <Route
+        path="/productos"
+        element={
+          <AdminLayout>
+            <Statistics />
+          </AdminLayout>
+        }
+      />
 
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>

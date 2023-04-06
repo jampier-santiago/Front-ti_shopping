@@ -4,4 +4,5 @@ export interface Props {
   onClick?: () => void;
   text: string;
   type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary";
 }
