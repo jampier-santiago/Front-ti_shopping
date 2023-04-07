@@ -6,7 +6,7 @@ import useComponents from "../components/index";
 
 const Home = () => {
   // Components
-  const { Button } = useComponents();
+  const { Nav } = useComponents();
 
   // Controllers
   const { useHomeControllers } = useControllers();
@@ -18,14 +18,10 @@ const Home = () => {
 
   return (
     <StyledMain>
-  
-
-      <StylesTitle>TI_Shopping</StylesTitle>
-
+      <Nav></Nav>
       <section></section>
 
       <article></article>
-
     </StyledMain>
   );
 };
