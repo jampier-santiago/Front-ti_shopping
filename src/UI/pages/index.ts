@@ -5,4 +5,5 @@ import usePagesAdmin from "./admin";
 const usePages = () => {
   return { Home, Login, usePagesAdmin };
 };
+
 export default usePages;

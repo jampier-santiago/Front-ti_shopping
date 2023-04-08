@@ -5,7 +5,7 @@ import useComponents from "../components/index";
 
 const Home = () => {
   // Components
-  const { Button } = useComponents();
+  const { Nav } = useComponents();
 
   // Controllers
 
@@ -15,15 +15,10 @@ const Home = () => {
 
   return (
     <StyledMain>
-      <nav>HOME HOME HOME HOME</nav>
-
-      <StylesTitle>Hola</StylesTitle>
-
+      <Nav></Nav>
       <section></section>
 
       <article></article>
-
-      <footer></footer>
     </StyledMain>
   );
 };
