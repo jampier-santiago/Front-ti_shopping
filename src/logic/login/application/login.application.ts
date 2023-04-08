@@ -2,11 +2,17 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 // Endpoints
 import useEndpointsLogin from "../infrastructure/login.endpoints";
 
+// Redux
+import { logIn } from "redux/slices/auth/thunk";
+
 const useLoginApplication = () => {
+  const dispatch = useDispatch();
+
   // Endpoints
   const { makeLogin } = useEndpointsLogin();
 
@@ -25,15 +31,21 @@ const useLoginApplication = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [updateRoute, setUpdateRoute] = useState(false);
   //functions
-  const onSubmit = (data: any) => {
-    makeLogin({ email: data.emailUser, password: data.password })
-      .then(() => {
-        console.log("Login CORRECTO");
-        navigate("/");
-      })
-      .catch(({ response }) => {
-        console.error(response?.data?.msg);
-      });
+  const onSubmit = async (data: any) => {
+    // makeLogin({ email: data.emailUser, password: data.password })
+    //   .then(() => {
+    //     console.log("Login CORRECTO");
+    //     navigate("/");
+    //   })
+    //   .catch(({ response }) => {
+    //     console.error(response?.data?.msg);
+    //   });
+
+    await dispatch(
+      logIn({ fullName: "", id: "1", role: "CLIENT", token: "" }) as any
+    );
+
+    navigate("/admin/estadisticas");
   };
 
   const redirectUrl = (url: string) => {

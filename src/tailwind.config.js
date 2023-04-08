@@ -10,9 +10,9 @@ module.exports = {
         secondary: {
           200: "#F56F66",
           400: "#F24236",
-          600: "#426E86",
+          600: "#F24236",
           800: "#F02719",
-          DEFAULT: "#426E86",
+          DEFAULT: "#F24236",
         },
         primary: {
           200: "#5B91AE",

@@ -1,9 +1,9 @@
 import Home from "./Home";
 import Login from "./Login";
-import ShopView from "./ShopView";
-import Shop from "./Shop";
+import usePagesAdmin from "./admin";
 
 const usePages = () => {
-  return { Home, Login, ShopView, Shop };
+  return { Home, Login, usePagesAdmin };
 };
+
 export default usePages;

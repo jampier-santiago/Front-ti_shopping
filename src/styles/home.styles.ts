@@ -9,6 +9,8 @@ const StylesTitle = styled.h1`
   ${tw`text-3xl font-bold`}
 `;
 
-export const useHomeStyles = () => {
+const useHomeStyles = () => {
   return { StyledMain, StylesTitle };
 };
+
+export default useHomeStyles;

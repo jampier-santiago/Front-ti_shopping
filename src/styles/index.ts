@@ -1,10 +1,16 @@
 // Styles
-import { useHomeStyles } from "./home.styles";
+import useHomeStyles from "./home.styles";
 import useLoginStyles from "./login.styles";
-import useShopViewStyles from "./shopView.styles";
+import useStatisticsStyles from "./admin/statistics.styles";
 
 const useStyles = () => {
-  return { useHomeStyles, useLoginStyles, useShopViewStyles };
+  return {
+    useHomeStyles,
+    useLoginStyles,
+
+    // Admin
+    useStatisticsStyles,
+  };
 };
 
 export default useStyles;

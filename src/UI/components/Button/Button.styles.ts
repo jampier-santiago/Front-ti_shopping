@@ -1,8 +1,16 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 
-const StylesButton = styled.button`
-  ${tw`box-border w-full px-4 py-2 border-0 rounded-md cursor-pointer bg-primary`}
+interface Props {
+  variant?: "primary" | "secondary";
+}
+
+const StylesButton = styled.button<Props>`
+  ${tw`box-border w-full px-4 py-2 duration-75 border-0 rounded-md cursor-pointer`}
+
+  ${({ variant }) =>
+    variant === "primary" ? tw`bg-primary` : tw`bg-secondary`}
+
   &:hover {
     ${tw`bg-white`}
   }
