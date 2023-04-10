@@ -17,6 +17,7 @@ const useRouter = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Login />} />
+      <Route path="/shopView" element={<ShopView />} />
       <Route
         path="/admin/*"
         element={<PrivateRoute element={<RouterAdmin />} />}
