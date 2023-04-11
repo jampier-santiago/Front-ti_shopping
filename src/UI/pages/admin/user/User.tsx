@@ -10,7 +10,7 @@ const User = () => {
     <StyledMain>
       <StyledTitle>Mi Cuenta</StyledTitle>
 
-      <section></section>
+      <section>Role:</section>
     </StyledMain>
   );
 };
