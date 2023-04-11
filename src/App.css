@@ -5,3 +5,7 @@
 .show-menu {
   transform: translateX(0);
 }
+
+.active-link-menu {
+  color: red !important;
+}

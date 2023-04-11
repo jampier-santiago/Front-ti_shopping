@@ -1,6 +1,5 @@
 // Packages
 import { useDispatch } from "react-redux";
-import { logOut } from "redux/slices/auth/thunk";
 
 // Styles
 import useStyles from "./navAdmin.styles";
@@ -10,6 +9,7 @@ import useComponents from "..";
 
 // Logic
 import useAdminLayout from "logic/admin/layout/application/layout.applications";
+import { logOut } from "redux/slices/auth/thunk";
 
 // Assets
 import iconMenu from "assets/icons/menu.png";
@@ -41,28 +41,71 @@ const NavAdmin = () => {
       <StyledModal className={showModal ? "show-menu" : "hidde-menu"}>
         <StyledContainerLinks>
           <StyledLi>
-            <StyledLink to={"/"}>Estadisticas</StyledLink>
+            <StyledLink
+              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+              to={"/estadisticas"}
+            >
+              Estadisticas
+            </StyledLink>
           </StyledLi>
           <StyledLi>
-            <StyledLink to={"/"}>Mi negocio</StyledLink>
+            <StyledLink
+              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+              to={"/"}
+            >
+              Mi negocio
+            </StyledLink>
           </StyledLi>
           <StyledLi>
-            <StyledLink to={"/"}>Mis productos</StyledLink>
+            <StyledLink
+              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+              to={"/admin/productos"}
+            >
+              Mis productos
+            </StyledLink>
           </StyledLi>
           <StyledLi>
-            <StyledLink to={"/"}>Mi cuenta</StyledLink>
+            <StyledLink
+              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+              to={"/admin/mi-cuenta"}
+            >
+              Mi cuenta
+            </StyledLink>
           </StyledLi>
 
           {role === "ADMIN" && (
             <>
               <StyledLi>
-                <StyledLink to={"/"}>Usuarios</StyledLink>
+                <StyledLink
+                  className={({ isActive }) =>
+                    isActive ? "active-link-menu" : ""
+                  }
+                  to={"/"}
+                >
+                  Usuarios
+                </StyledLink>
               </StyledLi>
               <StyledLi>
-                <StyledLink to={"/"}>Tiendas</StyledLink>
+                <StyledLink
+                  className={({ isActive }) =>
+                    isActive ? "active-link-menu" : ""
+                  }
+                  to={"/"}
+                >
+                  Tiendas
+                </StyledLink>
               </StyledLi>
             </>
           )}
+
+          <StyledLi>
+            <Button
+              text="Cerrar sesion"
+              type="button"
+              variant="secondary"
+              onClick={() => dispatch(logOut() as any)}
+            />
+          </StyledLi>
         </StyledContainerLinks>
       </StyledModal>
 
@@ -78,25 +121,59 @@ const NavAdmin = () => {
 
       <StyledContainerLinks desktop>
         <StyledLi>
-          <StyledLink to={"/"}>Estadisticas</StyledLink>
+          <StyledLink
+            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+            to={"/estadisticas"}
+          >
+            Estadisticas
+          </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to={"/"}>Mi negocio</StyledLink>
+          <StyledLink
+            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+            to={"/"}
+          >
+            Mi negocio
+          </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to={"/"}>Mis productos</StyledLink>
+          <StyledLink
+            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+            to={"/admin/productos"}
+          >
+            Mis productos
+          </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to={"/"}>Mi cuenta</StyledLink>
+          <StyledLink
+            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+            to={"/admin/mi-cuenta"}
+          >
+            Mi cuenta
+          </StyledLink>
         </StyledLi>
 
         {role === "ADMIN" && (
           <>
             <StyledLi>
-              <StyledLink to={"/"}>Usuarios</StyledLink>
+              <StyledLink
+                className={({ isActive }) =>
+                  isActive ? "active-link-menu" : ""
+                }
+                to={"/"}
+              >
+                Usuarios
+              </StyledLink>
             </StyledLi>
             <StyledLi>
-              <StyledLink to={"/"}>Tiendas</StyledLink>
+              <StyledLink
+                className={({ isActive }) =>
+                  isActive ? "active-link-menu" : ""
+                }
+                to={"/"}
+              >
+                Tiendas
+              </StyledLink>
             </StyledLi>
           </>
         )}

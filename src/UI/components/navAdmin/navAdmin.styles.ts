@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 import tw from "twin.macro";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const StyledContainer = styled.article`
   ${tw`box-border relative flex items-center justify-between w-full px-6 py-6 lg:px-3 lg:flex-col lg:w-auto lg:h-screen bg-primary`}
@@ -21,10 +21,10 @@ const StyledContainerLinks = styled.ul<{ desktop?: boolean }>`
 `;
 
 const StyledLi = styled.li`
-  ${tw`p-0 m-0 list-none mb-1.5 w-full`}
+  ${tw`m-0 list-none mb-1.5 w-full box-border px-5 lg:px-3`}
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   ${tw`block mx-auto text-xl font-semibold text-center text-black no-underline`}
 
   &:hover {
