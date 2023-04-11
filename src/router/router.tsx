@@ -24,8 +24,22 @@ const useRouter = () => {
           </MainLayout>
         }
       />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Login />} />
+      <Route
+        path="/login"
+        element={
+          <MainLayout>
+            <Login />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <MainLayout>
+            <Login />
+          </MainLayout>
+        }
+      />
       <Route path="/shopView" element={<ShopView />} />
       <Route
         path="/admin/*"

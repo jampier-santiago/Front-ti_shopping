@@ -2,9 +2,9 @@ import useFooterStyles from "./Footer.styles";
 
 //ASSETS
 import logo from "../../../assets/img/Logo_TI_Shopping.png";
-import iconFacebook from "../../../assets/Icons/Logo-facebook.png";
-import iconTwitter from "../../../assets/Icons/Logo-twitter.png";
-import iconInstagram from "../../../assets/Icons/Logo-instagram.png";
+import iconFacebook from "../../../assets/icons/Logo-facebook.png";
+import iconTwitter from "../../../assets/icons/Logo-twitter.png";
+import iconInstagram from "../../../assets/icons/Logo-instagram.png";
 
 const Footer = () => {
   const {
