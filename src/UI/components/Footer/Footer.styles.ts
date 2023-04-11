@@ -9,8 +9,8 @@ const StyledFooter = styled.footer`
   ${tw`bg-primary box-border px-8 py-4`}
 `;
 const StyledBody = styled.article`
-  ${tw`w-full grid grid-cols-4 gap-5 max-w-[1280px] mx-auto 
-  justify-items-center justify-self-center  sm:grid-cols-2  `}
+  ${tw` w-full grid grid-cols-4 gap-5 max-w-[1280px] mx-auto 
+  justify-items-center justify-self-center  `}
 `;
 const StyledCol = styled.ul`
   ${tw`w-full list-none `}

@@ -2,18 +2,32 @@ import useNavStyles from "./Nav.styles";
 
 //ASSETS
 import logo from "../../../assets/img/Logo_TI_Shopping.png";
-
+import icono from "../../../assets/Icons/carrito-de-compras.png";
 const Nav = () => {
-  const { Styledlogo, StyledLink, StyledCol, StyledCollis, StyledNav } =
-    useNavStyles();
+  const {
+    Styledlogo,
+    StyledLink,
+    StyledCol,
+    StyledCollis,
+    StyledNav,
+    StyledHeader,
+    StyledActionHeader,
+  } = useNavStyles();
 
   return (
     <StyledNav>
-      <Styledlogo src={logo} alt="logo_Ti_Shopping" />
+      <StyledHeader>
+        <Styledlogo src={logo} alt="logo_Ti_Shopping" />
+        <StyledActionHeader>
+          <StyledLink href="/login">Sign In</StyledLink>
+          <img src={icono} alt="Icono_de_Compra" />
+        </StyledActionHeader>
+      </StyledHeader>
 
+      <hr />
       <StyledCol>
         <StyledCollis>
-          <StyledLink href="#">Inicio</StyledLink>
+          <StyledLink href="#">Shop</StyledLink>
         </StyledCollis>
         <StyledCollis>
           <StyledLink href="#">Categorías</StyledLink>

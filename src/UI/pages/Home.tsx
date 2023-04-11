@@ -15,7 +15,6 @@ const Home = () => {
 
   return (
     <StyledMain>
-      <Nav></Nav>
       <section></section>
 
       <article></article>

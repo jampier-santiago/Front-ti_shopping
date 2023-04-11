@@ -15,7 +15,7 @@ const StyledContainer = styled.main`
 `;
 
 const AdminLayout: FC<Props> = ({ children }) => {
-  const { NavAdmin } = useComponents();
+  const { NavAdmin, Footer } = useComponents();
 
   return (
     <>
@@ -23,6 +23,7 @@ const AdminLayout: FC<Props> = ({ children }) => {
         <NavAdmin />
         {children}
       </StyledContainer>
+      <Footer></Footer>
     </>
   );
 };

@@ -1,8 +1,9 @@
 // Layouts
 import AdminLayout from "./AdminLayout";
+import MainLayout from "./MainLayout";
 
 const useLayouts = () => {
-  return { AdminLayout };
+  return { AdminLayout, MainLayout };
 };
 
 export default useLayouts;
