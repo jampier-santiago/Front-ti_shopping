@@ -11,7 +11,7 @@ interface Props {
 }
 
 const StyledContainer = styled.main`
-  ${tw`box-border flex flex-row w-full flex-nowrap`}
+  ${tw`box-border flex flex-col w-full lg:flex-row flex-nowrap`}
 `;
 
 const AdminLayout: FC<Props> = ({ children }) => {

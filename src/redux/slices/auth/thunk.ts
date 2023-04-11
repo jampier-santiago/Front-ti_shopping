@@ -11,7 +11,7 @@ export const logIn = (user: Person) => {
   return async (dispatch: any) => {
     dispatch(
       logInUser({
-        fullName: "AAAAA",
+        fullName: "Jampier Moreno",
         id: "1",
         role: "ADMIN",
         token:

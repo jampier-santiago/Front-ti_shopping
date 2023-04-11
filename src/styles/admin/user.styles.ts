@@ -9,8 +9,8 @@ const StyledTitle = styled.h1`
   ${tw`text-3xl font-bold text-center`}
 `;
 
-const useStatisticsStyles = () => {
+const useUserStyles = () => {
   return { StyledMain, StyledTitle };
 };
 
-export default useStatisticsStyles;
+export default useUserStyles;

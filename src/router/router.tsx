@@ -11,7 +11,7 @@ import useLayouts from "UI/layouts";
 
 const useRouter = () => {
   const { usePages } = useViews();
-  const { Home, Login } = usePages();
+  const { Home, Login, ShopView } = usePages();
   const { MainLayout } = useLayouts();
 
   return (
@@ -26,6 +26,7 @@ const useRouter = () => {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Login />} />
+      <Route path="/shopView" element={<ShopView />} />
       <Route
         path="/admin/*"
         element={<PrivateRoute element={<RouterAdmin />} />}
