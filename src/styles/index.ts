@@ -3,6 +3,7 @@ import useHomeStyles from "./home.styles";
 import useLoginStyles from "./login.styles";
 import useStatisticsStyles from "./admin/statistics.styles";
 import useShopViewStyles from "./shopView.styles";
+import useUserStyles from "./admin/user.styles";
 
 const useStyles = () => {
   return {
@@ -12,6 +13,7 @@ const useStyles = () => {
 
     // Admin
     useStatisticsStyles,
+    useUserStyles,
   };
 };
 

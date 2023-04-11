@@ -1,6 +1,12 @@
+// Packages
 import { FC } from "react";
+
+// Interfaces
 import { Props } from "./interface";
+
+// Styles
 import useStyles from "./Button.styles";
+
 const Button: FC<Props> = ({
   id,
   className,
@@ -10,6 +16,7 @@ const Button: FC<Props> = ({
   variant = "primary",
 }) => {
   const { StylesButton, StylesText } = useStyles();
+
   return (
     <StylesButton
       id={id}

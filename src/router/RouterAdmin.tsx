@@ -14,7 +14,7 @@ const RouterAdmin = () => {
   // Pages
   const { usePages } = useViews();
   const { usePagesAdmin } = usePages();
-  const { Statistics } = usePagesAdmin();
+  const { Statistics, User } = usePagesAdmin();
 
   return (
     <Routes>
@@ -31,6 +31,14 @@ const RouterAdmin = () => {
         element={
           <AdminLayout>
             <Statistics />
+          </AdminLayout>
+        }
+      />
+      <Route
+        path="/mi-cuenta"
+        element={
+          <AdminLayout>
+            <User />
           </AdminLayout>
         }
       />
