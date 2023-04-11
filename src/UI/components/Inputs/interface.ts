@@ -8,4 +8,5 @@ export interface Props {
   textLabel: string;
   register: UseFormRegister<any>;
   required?: boolean;
+  dark?: boolean;
 }

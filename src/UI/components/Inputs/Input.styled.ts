@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 
-const StylesInput = styled.input`
-  ${tw`bg-transparent box-border px-4 py-3 border-[#19191B] border-2 border-solid text-white`}
+const StylesInput = styled.input<{ dark?: boolean }>`
+  ${tw`bg-transparent box-border px-4 py-3 border-[#19191B] border-2 border-solid outline-none`}
+
+  ${({ dark }) => (dark ? tw`text-black` : tw`text-white`)}
 `;
 
 const StylesTxtLabel = styled.label`
@@ -10,7 +12,7 @@ const StylesTxtLabel = styled.label`
 `;
 
 const StylesRow = styled.div`
-  ${tw`w-full flex flex-col gap-2`}
+  ${tw`flex flex-col w-full gap-2`}
 `;
 
 const useStyles = () => {

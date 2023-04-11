@@ -9,8 +9,12 @@ const StyledTitle = styled.h1`
   ${tw`text-3xl font-bold text-center`}
 `;
 
+const StyledForm = styled.form`
+  ${tw`box-border flex flex-col w-full gap-3 mb-6`}
+`;
+
 const useUserStyles = () => {
-  return { StyledMain, StyledTitle };
+  return { StyledMain, StyledTitle, StyledForm };
 };
 
 export default useUserStyles;
