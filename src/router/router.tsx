@@ -11,7 +11,7 @@ import useLayouts from "UI/layouts";
 
 const useRouter = () => {
   const { usePages } = useViews();
-  const { Home, Login, ShopView } = usePages();
+  const { Home, Login, ShopView, ShopDetail, ProductDetail } = usePages();
   const { MainLayout } = useLayouts();
 
   return (
@@ -40,13 +40,30 @@ const useRouter = () => {
           </MainLayout>
         }
       />
-      <Route path="/shopView" element={<ShopView />} />
+      <Route path="/shop-view" element={<ShopView />} />
       <Route
         path="/admin/*"
         element={<PrivateRoute element={<RouterAdmin />} />}
       />
 
       <Route path="/*" element={<Navigate to="/" />} />
+
+      <Route
+        path="/shop-detail"
+        element={
+          <MainLayout>
+            <ShopDetail />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/product-detail"
+        element={
+          <MainLayout>
+            <ProductDetail />
+          </MainLayout>
+        }
+      />
     </Routes>
   );
 };
