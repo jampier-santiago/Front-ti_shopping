@@ -15,59 +15,62 @@ const Footer = () => {
     StyledLink,
     StyledIcon,
     StyledInfoLegal,
+    StyledListLinks,
+    StyledContainerLogo,
+    StyledRow,
   } = useFooterStyles();
 
   return (
     <StyledFooter>
       <StyledBody>
-        <article>
+        <StyledContainerLogo>
           <Styledlogo src={logo} alt="logo_Ti_Shopping" />
-        </article>
+        </StyledContainerLogo>
 
         <StyledCol>
-          <li>
-            <StyledLink href="#">Home</StyledLink>
-          </li>
-          <li>
-            <StyledLink href="#">Destacados</StyledLink>
-          </li>
-          <li>
-            <StyledLink href="#">Novedades</StyledLink>
-          </li>
-          <li>
-            <StyledLink href="#">Ofertas</StyledLink>
-          </li>
+          <StyledRow>
+            <StyledLink to="#">Home</StyledLink>
+          </StyledRow>
+          <StyledRow>
+            <StyledLink to="#">Destacados</StyledLink>
+          </StyledRow>
+          <StyledRow>
+            <StyledLink to="#">Novedades</StyledLink>
+          </StyledRow>
+          <StyledRow>
+            <StyledLink to="#">Ofertas</StyledLink>
+          </StyledRow>
         </StyledCol>
 
         <StyledCol>
-          <li>
-            <StyledLink href="#">Legal</StyledLink>
-          </li>
-          <li>
-            <StyledLink href="#">Terminos y Condiciones</StyledLink>
-          </li>
-          <li>
-            <StyledLink href="#">Politicas de Privacidad</StyledLink>
-          </li>
+          <StyledRow>
+            <StyledLink to="#">Legal</StyledLink>
+          </StyledRow>
+          <StyledRow>
+            <StyledLink to="#">Terminos y Condiciones</StyledLink>
+          </StyledRow>
+          <StyledRow>
+            <StyledLink to="#">Politicas de Privacidad</StyledLink>
+          </StyledRow>
         </StyledCol>
 
         <StyledCol>
-          <li>
-            <StyledLink href="#">Contacto</StyledLink>
-          </li>
-          <li>
-            <StyledLink href="#">info@itshopping.com.co</StyledLink>
-          </li>
+          <StyledRow>
+            <StyledLink to="#">Contacto</StyledLink>
+          </StyledRow>
+          <StyledRow>
+            <StyledLink to="#">info@itshopping.com.co</StyledLink>
+          </StyledRow>
         </StyledCol>
       </StyledBody>
       <hr />
       <StyledInfoLegal>
-        <div>
-          <StyledLink href="#">License</StyledLink>
-          <StyledLink href="#">Privacy</StyledLink>
-          <StyledLink href="#">terms</StyledLink>
-          <StyledLink href="#">©2023 All rights reserved</StyledLink>
-        </div>
+        <StyledListLinks>
+          <StyledLink to="#">License</StyledLink>
+          <StyledLink to="#">Privacy</StyledLink>
+          <StyledLink to="#">terms</StyledLink>
+          <StyledLink to="#">©2023 All rights reserved</StyledLink>
+        </StyledListLinks>
         <StyledIcon>
           <img src={iconFacebook} alt="Logo-Facebook" />
           <img src={iconTwitter} alt="Logo-Twitter" />

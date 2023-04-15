@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledMain = styled.main`
-  ${tw`box-border px-6`}
+  ${tw`box-border px-6 py-10`}
 `;
 
 const StyledTitle = styled.h1`
