@@ -5,12 +5,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 
 const useUserApplication = () => {
-  const { fullName, role, address, email, phoneNumber } = useSelector(
+  const { fullName, address, email, phoneNumber } = useSelector(
     (state: RootState) => state.auth
   );
 
   // States
-  const [isEditingData, setIsEditingData] = useState(false);
+  const [isEditingData, setIsEditingData] = useState<boolean>(false);
+  const [showToast, setShowToast] = useState<boolean>(false);
 
   //form
   const {
@@ -29,10 +30,15 @@ const useUserApplication = () => {
   // Functions
   const submit = (data: any) => {
     console.log(data);
+    handleStateToast();
   };
 
   const handleStateForm = () => {
     setIsEditingData((data) => !data);
+  };
+
+  const handleStateToast = () => {
+    setShowToast(!showToast);
   };
 
   return {
@@ -43,6 +49,8 @@ const useUserApplication = () => {
     fullName,
     isEditingData,
     handleStateForm,
+    showToast,
+    handleStateToast,
   };
 };
 

@@ -10,10 +10,17 @@ import useUserApplication from "logic/admin/user/application/user.application";
 const User = () => {
   // Styles
   const { useUserStyles } = useStyles();
-  const { StyledMain, StyledTitle, StyledForm } = useUserStyles();
+  const {
+    StyledMain,
+    StyledTitle,
+    StyledForm,
+    StyledButton,
+    StyledContainerButtons,
+    StyledErrors,
+  } = useUserStyles();
 
   // Components
-  const { Input, Button } = useComponents();
+  const { Input, Toast } = useComponents();
 
   // Constrollers
   const {
@@ -23,10 +30,18 @@ const User = () => {
     submit,
     isEditingData,
     handleStateForm,
+    showToast,
+    handleStateToast,
   } = useUserApplication();
 
   return (
     <StyledMain>
+      {showToast && (
+        <Toast variant="success" timeHidden={5000} close={handleStateToast}>
+          Agregaste un producto al carrito
+        </Toast>
+      )}
+
       <StyledTitle>Mi Cuenta</StyledTitle>
 
       <StyledForm onSubmit={handleSubmit(submit)}>
@@ -37,7 +52,12 @@ const User = () => {
           register={register}
           dark
           required
+          disabled={!isEditingData}
         />
+
+        {errors.userName && (
+          <StyledErrors>Este campo es obligatorio</StyledErrors>
+        )}
 
         <Input
           id="phoneNumber"
@@ -46,7 +66,11 @@ const User = () => {
           register={register}
           dark
           required
+          disabled={!isEditingData}
         />
+        {errors.phoneNumber && (
+          <StyledErrors>Este campo es obligatorio</StyledErrors>
+        )}
 
         <Input
           id="userEmail"
@@ -55,7 +79,11 @@ const User = () => {
           register={register}
           dark
           required
+          disabled={!isEditingData}
         />
+        {errors.userEmail && (
+          <StyledErrors>Este campo es obligatorio</StyledErrors>
+        )}
 
         <Input
           id="address"
@@ -64,15 +92,27 @@ const User = () => {
           register={register}
           dark
           required
+          disabled={!isEditingData}
         />
+        {errors.address && (
+          <StyledErrors>Este campo es obligatorio</StyledErrors>
+        )}
 
         {isEditingData && (
-          <Button text="Guardar" variant="primary" type="submit" />
+          <StyledContainerButtons>
+            <StyledButton text="Guardar" variant="primary" type="submit" />
+            <StyledButton
+              text="Cancelar"
+              variant="secondary"
+              type="button"
+              onClick={handleStateForm}
+            />
+          </StyledContainerButtons>
         )}
       </StyledForm>
 
       {!isEditingData && (
-        <Button text="Editar datos" onClick={handleStateForm} />
+        <StyledButton text="Editar datos" onClick={handleStateForm} />
       )}
     </StyledMain>
   );
