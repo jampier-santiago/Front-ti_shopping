@@ -38,7 +38,7 @@ const User = () => {
     <StyledMain>
       {showToast && (
         <Toast variant="success" timeHidden={5000} close={handleStateToast}>
-          Agregaste un producto al carrito
+          Datos actualizados con exito
         </Toast>
       )}
 

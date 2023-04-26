@@ -17,7 +17,6 @@ const Toast: FC<GeneralProps> = ({
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("dasdadsa");
       close();
     }, timeHidden);
     // eslint-disable-next-line react-hooks/exhaustive-deps
