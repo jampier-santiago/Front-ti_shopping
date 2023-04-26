@@ -45,21 +45,10 @@ const useProductsAdminApplication = () => {
     }).then(({ isConfirmed }) => {
       if (isConfirmed) {
         const temporaryData = [...products];
-        const finalData: any[] = [];
 
-        setShowToast(true);
+        const newData = temporaryData.filter((product) => product.id !== id);
 
-        temporaryData.forEach((product, index) => {
-          if (product.id === id) {
-            delete temporaryData[index];
-          }
-        });
-
-        temporaryData.forEach((element) => {
-          if (element) finalData.push(element);
-        });
-
-        setProducts(finalData);
+        setProducts(newData);
       }
     });
   };
