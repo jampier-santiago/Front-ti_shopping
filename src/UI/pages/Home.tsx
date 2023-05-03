@@ -52,6 +52,7 @@ const Home = () => {
             facilis! Et nihil, esse reiciendis est eius quaerat error eveniet
             fuga.
           </StyledinfoH2>
+          <p>chupelogonorreahpsarnozo</p>
         </StylesTitle>
         <div>
           <StyledImgInfo src={backImg} alt="" />

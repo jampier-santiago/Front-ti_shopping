@@ -10,7 +10,6 @@ const StyledInfoContentDiv = styled.div`
     content: " ";
     border-top: 100vh solid #008ce6;
     border-right: 100vw solid transparent;
-
     width: 0;
     position: absolute;
   }
