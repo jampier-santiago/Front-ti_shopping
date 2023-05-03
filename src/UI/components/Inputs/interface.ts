@@ -9,4 +9,5 @@ export interface Props {
   register: UseFormRegister<any>;
   required?: boolean;
   dark?: boolean;
+  disabled?: boolean;
 }

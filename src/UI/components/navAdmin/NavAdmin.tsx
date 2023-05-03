@@ -43,7 +43,7 @@ const NavAdmin = () => {
           <StyledLi>
             <StyledLink
               className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-              to={"/estadisticas"}
+              to={"/admin/estadisticas"}
             >
               Estadisticas
             </StyledLink>
