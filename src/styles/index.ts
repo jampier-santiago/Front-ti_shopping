@@ -4,6 +4,7 @@ import useLoginStyles from "./login.styles";
 import useStatisticsStyles from "./admin/statistics.styles";
 import useShopViewStyles from "./shopView.styles";
 import useUserStyles from "./admin/user.styles";
+import useProductsAStyles from "./admin/products.styles";
 
 const useStyles = () => {
   return {
@@ -14,6 +15,7 @@ const useStyles = () => {
     // Admin
     useStatisticsStyles,
     useUserStyles,
+    useProductsdminStyles: useProductsAStyles,
   };
 };
 

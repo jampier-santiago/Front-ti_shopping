@@ -10,6 +10,8 @@ const Input: FC<Props> = ({
   type = "text",
   register,
   required,
+  dark = false,
+  disabled,
 }) => {
   const { StylesInput, StylesTxtLabel, StylesRow } = useStyles();
   return (
@@ -20,6 +22,8 @@ const Input: FC<Props> = ({
         type={type}
         placeholder={placeholder}
         id={id}
+        dark={dark}
+        disabled={disabled}
       />
     </StylesRow>
   );
