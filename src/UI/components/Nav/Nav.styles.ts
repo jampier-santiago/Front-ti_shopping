@@ -9,7 +9,7 @@ const Styledlogo = styled.img`
           h-12 w-24 cursor-pointer`}
 `;
 const StyledLink = styled.a<{ hidden?: boolean }>`
-  ${tw` no-underline text-white m-4 text-black cursor-pointer`}
+  ${tw` no-underline text-white m-10 text-black cursor-pointer`}
   ${({ hidden }) => hidden && tw` hidden lg:block`}
 `;
 const StyledCol = styled.ul`
