@@ -3,14 +3,14 @@ import useStyles from "../../styles";
 // Controllers
 import useComponents from "../components/index";
 
-// //Assets
-// //import backImgPC from "../../../src/assets/img/Imagen-Computador.png";
-// import backImg from "../../../src/assets/img/pngwing.com.png";
-// import iconBolsa from "../../../src/assets/icons/bolsas-de-compra.png";
-// import iconMoneda from "../../../src/assets/icons/monedas-de-un-dolar.png";
-// import iconMapa from "../../../src/assets/icons/mapa-icon.png";
-// import iconCarro from "../../../src/assets/icons/logistico-icon.png";
-// //import iconWindows from "../../../src/assets/icons/Logo-Windows.png";//
+//Assets
+import backImgPC from "../../../src/assets/img/Imagen-Computador.png";
+import backImg from "../../../src/assets/img/pngwing.com.png";
+import iconBolsa from "../../../src/assets/icons/bolsas-de-compra.png";
+import iconMoneda from "../../../src/assets/icons/monedas-de-un-dolar.png";
+import iconMapa from "../../../src/assets/icons/mapa-icon.png";
+import iconCarro from "../../../src/assets/icons/logistico-icon.png";
+import iconWindows from "../../../src/assets/icons/Logo-Windows.png";
 
 const Home = () => {
   // Components
@@ -55,13 +55,13 @@ const Home = () => {
           <p>chupelogonorreahpsarnozo</p>
         </StylesTitle>
         <div>
-          <StyledImgInfo src="" alt="" />
+          <StyledImgInfo src={backImg} alt="" />
         </div>
       </StylesInfoContent>
 
       <StyledCardContenDiv>
         <StyledCardDiv>
-          <img src="" alt="" />
+          <img src={iconBolsa} alt="" />
           <h3>Variedad de Producto</h3>
           <p>
             TI_Shopping puedes acceder desde cualquier lugar y comprar lo que
@@ -69,18 +69,18 @@ const Home = () => {
           </p>
         </StyledCardDiv>
         <StyledCardDiv>
-          <img src="" alt="" />
+          <img src={iconMoneda} alt="" />
           <h3>Paga Facil</h3>
           <p>Multiples metodo de pago que te facilitaran la compra</p>
         </StyledCardDiv>
         <StyledCardDiv>
-          <img src="" alt="" />
+          <img src={iconMapa} alt="" />
           <h3>Tiendas Fisicas</h3>
           <p>Puedes ir a la tienda fisica del vendedor</p>
         </StyledCardDiv>
 
         <StyledCardDiv>
-          <img src="" alt="" />
+          <img src={iconCarro} alt="" />
           <h3>Envio</h3>
           <p>TI_Shopping lleva tu producto a la puerta de tu casa</p>
         </StyledCardDiv>
@@ -99,11 +99,11 @@ const Home = () => {
               odio eaque alias dolore dolorem excepturi magnam.
             </StyledFeatureP>
           </div>
-          <img src="" alt="" />
+          <img src={backImg} alt="" />
         </StyledFeatureCardDiv>
 
         <StyledFeatureCardDiv>
-          <img src="" alt="" />
+          <img src={backImg} alt="" />
           <div>
             <h2>Fast Action</h2>
             <StyledFeatureP>
@@ -125,7 +125,7 @@ const Home = () => {
               odio eaque alias dolore dolorem excepturi magnam.
             </StyledFeatureP>
           </div>
-          <img src="" alt="" />
+          <img src={backImg} alt="" />
         </StyledFeatureCardDiv>
       </StyledFeatureDiv>
 
