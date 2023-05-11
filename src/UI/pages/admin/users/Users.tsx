@@ -15,8 +15,6 @@ const Users: FC = () => {
   // Controllers
   const { users, deletePeople } = useUsersApplication();
 
-  console.log(users);
-
   return (
     <StyledMain>
       <StyledTitle>Nuestros usuarios</StyledTitle>
