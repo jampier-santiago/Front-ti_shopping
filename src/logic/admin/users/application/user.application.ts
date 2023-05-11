@@ -34,18 +34,33 @@ const useUsersApplication = () => {
 
   const getAllPeople = useCallback(() => {
     endpoint()
-      .get<AxiosResponse>(`${process.env.REACT_APP_ENDPOINT_URL}/auth/users`, {
-        "x-token": token,
+      .get<AxiosResponse>({
+        url: `${process.env.REACT_APP_ENDPOINT_URL}/auth/users`,
+        headers: {
+          "x-token": token,
+        },
       })
       .then((result) => setUsers(result as any))
       .catch((error) => console.log(error));
   }, [token]);
 
+  const deletePeople = (id: number) => {
+    endpoint()
+      .deleteEndpoint<AxiosResponse>({
+        url: `${process.env.REACT_APP_ENDPOINT_URL}/auth/delete/${id}`,
+        headers: {
+          "x-token": token,
+        },
+      })
+      .then(() => getAllPeople())
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     getAllPeople();
   }, [getAllPeople]);
 
-  return { users };
+  return { users, deletePeople };
 };
 
 export default useUsersApplication;

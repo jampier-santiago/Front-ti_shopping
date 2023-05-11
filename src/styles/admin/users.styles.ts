@@ -21,8 +21,8 @@ const StyledRow = styled.div`
   }
 `;
 
-const StyledContainerIcons = styled.div<{ active: boolean }>`
-  ${tw`box-border block px-4 py-3 font-semibold border border-solid`}
+const StyledButtonRow = styled.div<{ active: boolean }>`
+  ${tw`box-border block px-4 py-3 font-semibold border border-solid cursor-pointer`}
 
   ${({ active }) =>
     active
@@ -36,7 +36,7 @@ const useStyles = () => {
     StyledTitle,
     StyledBody,
     StyledRow,
-    StyledContainerIcons,
+    StyledButtonRow,
   };
 };
 

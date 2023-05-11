@@ -34,9 +34,12 @@ const useLoginApplication = () => {
   //functions
   const onSubmit = async (data: any) => {
     endpoint()
-      .post<AxiosResponse>(`${process.env.REACT_APP_ENDPOINT_URL}/auth/login`, {
-        email: data.emailUser,
-        password: data.password,
+      .post<AxiosResponse>({
+        url: `${process.env.REACT_APP_ENDPOINT_URL}/auth/login`,
+        data: {
+          email: data.emailUser,
+          password: data.password,
+        },
       })
       .then(async (result) => {
         const data = result as unknown as ResponseLogin;

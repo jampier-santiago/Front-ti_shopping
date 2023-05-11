@@ -9,16 +9,11 @@ import useUsersApplication from "logic/admin/users/application/user.application"
 
 const Users: FC = () => {
   // Styles
-  const {
-    StyledMain,
-    StyledTitle,
-    StyledBody,
-    StyledRow,
-    StyledContainerIcons,
-  } = useStyles();
+  const { StyledMain, StyledTitle, StyledBody, StyledRow, StyledButtonRow } =
+    useStyles();
 
   // Controllers
-  const { users } = useUsersApplication();
+  const { users, deletePeople } = useUsersApplication();
 
   console.log(users);
 
@@ -34,9 +29,12 @@ const Users: FC = () => {
                 {user.f_name} {user.f_lastname || ""}
               </span>
 
-              <StyledContainerIcons active={user.state === 0}>
+              <StyledButtonRow
+                active={user.state === 0}
+                onClick={() => deletePeople(user.Id_people)}
+              >
                 {user.state === 0 ? "Activar" : "Desactivar"}
-              </StyledContainerIcons>
+              </StyledButtonRow>
             </StyledRow>
           ))}
       </StyledBody>
