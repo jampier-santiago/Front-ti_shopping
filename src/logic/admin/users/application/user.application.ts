@@ -31,6 +31,11 @@ const useUsersApplication = () => {
 
   // States
   const [users, setUsers] = useState<Array<Person>>([]);
+  const [showToast, setShowToast] = useState<boolean>(false);
+  const [infoToast, setInfoToast] = useState<{
+    msg: string;
+    state: "error" | "success";
+  }>({ msg: "", state: "error" });
 
   const getAllPeople = useCallback(() => {
     endpoint()
@@ -52,15 +57,23 @@ const useUsersApplication = () => {
           "x-token": token,
         },
       })
-      .then(() => getAllPeople())
-      .catch((error) => console.log(error));
+      .then(() => {
+        setShowToast(true);
+        setInfoToast({ msg: "Persona eliminada con exito", state: "success" });
+        getAllPeople();
+      })
+      .catch((error) => {
+        setShowToast(true);
+        setInfoToast({ msg: error.response.data.error, state: "error" });
+        console.log(error);
+      });
   };
 
   useEffect(() => {
     getAllPeople();
   }, [getAllPeople]);
 
-  return { users, deletePeople };
+  return { users, deletePeople, infoToast, showToast, setShowToast };
 };
 
 export default useUsersApplication;

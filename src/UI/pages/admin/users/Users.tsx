@@ -7,36 +7,55 @@ import useStyles from "styles/admin/users.styles";
 // Controllers
 import useUsersApplication from "logic/admin/users/application/user.application";
 
+// Components
+import useComponents from "UI/components";
+
 const Users: FC = () => {
   // Styles
   const { StyledMain, StyledTitle, StyledBody, StyledRow, StyledButtonRow } =
     useStyles();
 
+  // Components
+  const { Toast } = useComponents();
+
   // Controllers
-  const { users, deletePeople } = useUsersApplication();
+  const { users, deletePeople, infoToast, setShowToast, showToast } =
+    useUsersApplication();
 
   return (
-    <StyledMain>
-      <StyledTitle>Nuestros usuarios</StyledTitle>
+    <>
+      {showToast && (
+        <Toast
+          timeHidden={2000}
+          close={() => setShowToast(false)}
+          variant={infoToast.state}
+        >
+          {infoToast.msg}
+        </Toast>
+      )}
 
-      <StyledBody>
-        {users.length > 0 &&
-          users.map((user) => (
-            <StyledRow key={user.Id_people}>
-              <span>
-                {user.f_name} {user.f_lastname || ""}
-              </span>
+      <StyledMain>
+        <StyledTitle>Nuestros usuarios</StyledTitle>
 
-              <StyledButtonRow
-                active={user.state === 0}
-                onClick={() => deletePeople(user.Id_people)}
-              >
-                {user.state === 0 ? "Activar" : "Desactivar"}
-              </StyledButtonRow>
-            </StyledRow>
-          ))}
-      </StyledBody>
-    </StyledMain>
+        <StyledBody>
+          {users.length > 0 &&
+            users.map((user) => (
+              <StyledRow key={user.Id_people}>
+                <span>
+                  {user.f_name} {user.f_lastname || ""}
+                </span>
+
+                <StyledButtonRow
+                  active={user.state === 0}
+                  onClick={() => deletePeople(user.Id_people)}
+                >
+                  {user.state === 0 ? "Activar" : "Desactivar"}
+                </StyledButtonRow>
+              </StyledRow>
+            ))}
+        </StyledBody>
+      </StyledMain>
+    </>
   );
 };
 
