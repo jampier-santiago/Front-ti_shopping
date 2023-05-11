@@ -1,20 +1,21 @@
 // Packages
+import { AxiosResponse } from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 // Endpoints
-import useEndpointsLogin from "../infrastructure/login.endpoints";
+import endpoint from "logic/api/api.adapter";
 
 // Redux
 import { logIn } from "redux/slices/auth/thunk";
 
+// Interfaces
+import { ResponseLogin } from "../data/login.models";
+
 const useLoginApplication = () => {
   const dispatch = useDispatch();
-
-  // Endpoints
-  const { makeLogin } = useEndpointsLogin();
 
   //Router
   const navigate = useNavigate();
@@ -32,20 +33,19 @@ const useLoginApplication = () => {
   const [updateRoute, setUpdateRoute] = useState(false);
   //functions
   const onSubmit = async (data: any) => {
-    // makeLogin({ email: data.emailUser, password: data.password })
-    //   .then(() => {
-    //     console.log("Login CORRECTO");
-    //     navigate("/");
-    //   })
-    //   .catch(({ response }) => {
-    //     console.error(response?.data?.msg);
-    //   });
+    endpoint()
+      .post<AxiosResponse>(`${process.env.REACT_APP_ENDPOINT_URL}/auth/login`, {
+        email: data.emailUser,
+        password: data.password,
+      })
+      .then(async (result) => {
+        const data = result as unknown as ResponseLogin;
 
-    await dispatch(
-      logIn({ fullName: "", id: "1", role: "CLIENT", token: "" }) as any
-    );
+        await dispatch(logIn(data) as any);
 
-    navigate("/admin/estadisticas");
+        navigate("/admin/estadisticas");
+      })
+      .catch((error) => console.log(error));
   };
 
   const redirectUrl = (url: string) => {

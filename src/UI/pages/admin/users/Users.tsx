@@ -18,18 +18,27 @@ const Users: FC = () => {
   } = useStyles();
 
   // Controllers
-  const {} = useUsersApplication();
+  const { users } = useUsersApplication();
+
+  console.log(users);
 
   return (
     <StyledMain>
       <StyledTitle>Nuestros usuarios</StyledTitle>
 
       <StyledBody>
-        <StyledRow>
-          <span>Jampier</span>
+        {users.length > 0 &&
+          users.map((user) => (
+            <StyledRow key={user.Id_people}>
+              <span>
+                {user.f_name} {user.f_lastname || ""}
+              </span>
 
-          <StyledContainerIcons active={false}>Activar</StyledContainerIcons>
-        </StyledRow>
+              <StyledContainerIcons active={user.state === 0}>
+                {user.state === 0 ? "Activar" : "Desactivar"}
+              </StyledContainerIcons>
+            </StyledRow>
+          ))}
       </StyledBody>
     </StyledMain>
   );

@@ -2,44 +2,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // Interfaces
-import { ResponsetLogin } from "logic/login/data/login.models";
+import { ResponseLogin } from "logic/login/data/login.models";
 
 export const authSlice = createSlice({
   name: "auth",
   initialState: localStorage.getItem("auth")
-    ? (JSON.parse(localStorage.getItem("auth") || "") as ResponsetLogin)
+    ? (JSON.parse(localStorage.getItem("auth") || "") as ResponseLogin)
     : {
-        fullName: "",
+        userName: "",
         id: "",
         role: "CLIENT",
         token: "",
         email: "",
         address: "",
-        phoneNumber: "",
-        dateOfMakeAccount: "",
+        num_telephone: "",
+        creation_date: "",
       },
   reducers: {
     logIn: (state, action) => {
-      state.fullName = action.payload.fullName;
+      state.userName = action.payload.userName;
       state.id = action.payload.id;
       state.role = action.payload.role;
       state.token = action.payload.token;
       state.address = action.payload.address;
       state.email = action.payload.email;
-      state.phoneNumber = action.payload.phoneNumber;
-      state.dateOfMakeAccount = action.payload.dateOfMakeAccount;
+      state.num_telephone = action.payload.num_telephone;
+      state.creation_date = action.payload.creation_date;
 
       localStorage.setItem("auth", JSON.stringify(action.payload));
     },
     logOut: (state) => {
-      state.fullName = "";
+      state.userName = "";
       state.id = "";
       state.role = "CLIENT";
       state.token = "";
       state.address = "";
       state.email = "";
-      state.phoneNumber = "";
-      state.dateOfMakeAccount = "";
+      state.num_telephone = "";
+      state.creation_date = "";
 
       localStorage.removeItem("auth");
     },

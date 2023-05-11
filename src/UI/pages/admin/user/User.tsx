@@ -68,7 +68,7 @@ const User = () => {
           required
           disabled={!isEditingData}
         />
-        {errors.phoneNumber && (
+        {errors.num_telephone && (
           <StyledErrors>Este campo es obligatorio</StyledErrors>
         )}
 

@@ -2,7 +2,7 @@ import tw from "twin.macro";
 import styled from "styled-components/macro";
 
 const StyledMain = styled.main`
-  ${tw`box-border min-h-[90vh] px-6 py-4`}
+  ${tw`box-border w-full lg:max-w-[700px] lg:mx-auto min-h-[90vh] px-6 py-4`}
 `;
 
 const StyledTitle = styled.h1`

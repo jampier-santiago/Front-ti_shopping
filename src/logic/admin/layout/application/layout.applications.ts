@@ -27,7 +27,7 @@ const useAdminLayout = () => {
   useEffect(() => {
     if (data) {
       setRole(data.role as any);
-      setUserName(data.fullName);
+      setUserName(data.userName);
     }
   }, [data]);
 

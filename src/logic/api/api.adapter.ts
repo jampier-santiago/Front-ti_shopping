@@ -9,21 +9,21 @@ axios.create({
 });
 
 const endpoint = (): HttpAdapter => {
-  async function get<T>(url: string): Promise<T> {
-    const { data } = await axios.get<T>(url);
+  async function get<T>(url: string, headers?: any): Promise<T> {
+    const { data } = await axios.get<T>(url, { headers });
     return data;
   }
-  async function post<T>(url: string, info: any): Promise<T> {
-    const { data } = await axios.post<T>(url, info);
+  async function post<T>(url: string, info: any, headers?: any): Promise<T> {
+    const { data } = await axios.post<T>(url, info, { headers });
     return data;
   }
-  async function put<T>(url: string, info: any): Promise<T> {
-    const { data } = await axios.put<T>(url, info);
+  async function put<T>(url: string, info: any, headers?: any): Promise<T> {
+    const { data } = await axios.put<T>(url, info, { headers });
     return data;
   }
 
-  async function deleteEndpoint<T>(url: string): Promise<T> {
-    const { data } = await axios.delete<T>(url);
+  async function deleteEndpoint<T>(url: string, headers?: any): Promise<T> {
+    const { data } = await axios.delete<T>(url, { headers });
     return data;
   }
 

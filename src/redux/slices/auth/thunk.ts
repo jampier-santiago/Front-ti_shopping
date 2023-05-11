@@ -1,25 +1,19 @@
 import { logIn as logInUser, logOut as logOutUser } from "./auth";
 
-interface Person {
-  fullName: string;
-  id: string | number;
-  role: "SELLER" | "CLIENT" | "ADMIN";
-  token: string;
-}
+import { ResponseLogin } from "../../../logic/login/data/login.models";
 
-export const logIn = (user: Person) => {
+export const logIn = (user: ResponseLogin) => {
   return async (dispatch: any) => {
     dispatch(
       logInUser({
-        fullName: "Jampier Moreno",
-        id: "1",
-        role: "ADMIN",
-        token:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxIiwiaWF0IjoxNjgwNDAzNzIxLCJleHAiOjE2ODA0MjE3MjF9.T6ucOW7BNv2y34W5WegMewzI0wkGWQVZZKluBtDBehc",
-        email: "jampier@gm.co",
-        address: "Cll 27b",
-        phoneNumber: "3024596562",
-        dateOfMakeAccount: "11/02/2023",
+        userName: user.userName,
+        id: user.id,
+        role: user.role,
+        token: user.token,
+        email: user.email,
+        address: user.address,
+        num_telephone: user.num_telephone,
+        creation_date: user.creation_date,
       })
     );
   };

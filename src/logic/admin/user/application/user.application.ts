@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 
 const useUserApplication = () => {
-  const { fullName, address, email, phoneNumber } = useSelector(
+  const { userName, address, email, num_telephone } = useSelector(
     (state: RootState) => state.auth
   );
 
@@ -20,8 +20,8 @@ const useUserApplication = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      userName: fullName,
-      phoneNumber,
+      userName: userName,
+      num_telephone,
       userEmail: email,
       address,
     },
@@ -46,7 +46,7 @@ const useUserApplication = () => {
     handleSubmit,
     errors,
     submit,
-    fullName,
+    userName,
     isEditingData,
     handleStateForm,
     showToast,
