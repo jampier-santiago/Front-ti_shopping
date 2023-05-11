@@ -14,7 +14,7 @@ const StyledBody = styled.section`
 `;
 
 const StyledRow = styled.div`
-  ${tw`box-border flex items-center justify-between w-full pb-1 border-t-0 border-b border-l-0 border-r-0 border-solid border-b-black`}
+  ${tw`box-border flex items-center justify-between w-full pb-3 mb-3 border-t-0 border-b border-l-0 border-r-0 border-solid border-b-black`}
 
   & span {
     ${tw`text-xl font-medium text-left`}

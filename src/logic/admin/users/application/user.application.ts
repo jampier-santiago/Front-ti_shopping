@@ -35,7 +35,7 @@ const useUsersApplication = () => {
   const getAllPeople = useCallback(() => {
     endpoint()
       .get<AxiosResponse>({
-        url: `${process.env.REACT_APP_ENDPOINT_URL}/auth/users`,
+        url: `/auth/users`,
         headers: {
           "x-token": token,
         },
@@ -47,7 +47,7 @@ const useUsersApplication = () => {
   const deletePeople = (id: number) => {
     endpoint()
       .deleteEndpoint<AxiosResponse>({
-        url: `${process.env.REACT_APP_ENDPOINT_URL}/auth/delete/${id}`,
+        url: `/auth/delete/${id}`,
         headers: {
           "x-token": token,
         },
