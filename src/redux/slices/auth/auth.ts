@@ -17,6 +17,9 @@ export const authSlice = createSlice({
         address: "",
         num_telephone: "",
         creation_date: "",
+        N_credit_card: "",
+        CVC: "",
+        credit_card_expiration_date: "",
       },
   reducers: {
     logIn: (state, action) => {
@@ -28,6 +31,10 @@ export const authSlice = createSlice({
       state.email = action.payload.email;
       state.num_telephone = action.payload.num_telephone;
       state.creation_date = action.payload.creation_date;
+      state.CVC = action.payload.CVC;
+      state.N_credit_card = action.payload.N_credit_card;
+      state.credit_card_expiration_date =
+        action.payload.credit_card_expiration_date;
 
       localStorage.setItem("auth", JSON.stringify(action.payload));
     },
@@ -40,6 +47,9 @@ export const authSlice = createSlice({
       state.email = "";
       state.num_telephone = "";
       state.creation_date = "";
+      state.CVC = "";
+      state.N_credit_card = "";
+      state.credit_card_expiration_date = "";
 
       localStorage.removeItem("auth");
     },

@@ -16,6 +16,8 @@ const Toast: FC<GeneralProps> = ({
   const { StyledToast } = useStyles();
 
   useEffect(() => {
+    window.scrollTo({ behavior: "smooth", top: 0 });
+
     setTimeout(() => {
       close();
     }, timeHidden);

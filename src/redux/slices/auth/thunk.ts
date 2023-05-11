@@ -14,6 +14,9 @@ export const logIn = (user: ResponseLogin) => {
         address: user.address,
         num_telephone: user.num_telephone,
         creation_date: user.creation_date,
+        N_credit_card: user.N_credit_card,
+        CVC: user.CVC,
+        credit_card_expiration_date: user.credit_card_expiration_date,
       })
     );
   };
