@@ -4,6 +4,10 @@ import axios from "axios";
 // Interfaces
 import { HttpAdapter } from "./api.interfaces";
 
+axios.create({
+  baseURL: process.env.REACT_APP_ENDPOINT_URL,
+});
+
 const endpoint = (): HttpAdapter => {
   async function get<T>(url: string): Promise<T> {
     const { data } = await axios.get<T>(url);
