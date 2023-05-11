@@ -14,6 +14,24 @@ import { logOut } from "redux/slices/auth/thunk";
 // Assets
 import iconMenu from "assets/icons/menu.png";
 
+const LinkWithRestriction = (role: string, link: any) => {
+  // Styles
+  const { StyledLink, StyledLi } = useStyles();
+
+  return role === "ADMIN" ? (
+    <StyledLi key={link.path}>
+      <StyledLink
+        className={({ isActive }) => (isActive ? "active-link-menu" : "")}
+        to={link.path}
+      >
+        {link.text}
+      </StyledLink>
+    </StyledLi>
+  ) : (
+    ""
+  );
+};
+
 const NavAdmin = () => {
   const dispatch = useDispatch();
 
@@ -34,69 +52,31 @@ const NavAdmin = () => {
   const { Button } = useComponents();
 
   // Logic
-  const { handleStateModal, userName, showModal, role } = useAdminLayout();
+  const { handleStateModal, userName, showModal, role, links } =
+    useAdminLayout();
 
   return (
     <StyledContainer>
       <StyledModal className={showModal ? "show-menu" : "hidde-menu"}>
         <StyledContainerLinks>
-          <StyledLi>
-            <StyledLink
-              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-              to={"/admin/estadisticas"}
-            >
-              Estadisticas
-            </StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink
-              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-              to={"/"}
-            >
-              Mi negocio
-            </StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink
-              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-              to={"/admin/productos"}
-            >
-              Mis productos
-            </StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink
-              className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-              to={"/admin/mi-cuenta"}
-            >
-              Mi cuenta
-            </StyledLink>
-          </StyledLi>
-
-          {role === "ADMIN" && (
+          {links.map((link) => (
             <>
-              <StyledLi>
-                <StyledLink
-                  className={({ isActive }) =>
-                    isActive ? "active-link-menu" : ""
-                  }
-                  to={"/"}
-                >
-                  Usuarios
-                </StyledLink>
-              </StyledLi>
-              <StyledLi>
-                <StyledLink
-                  className={({ isActive }) =>
-                    isActive ? "active-link-menu" : ""
-                  }
-                  to={"/"}
-                >
-                  Tiendas
-                </StyledLink>
-              </StyledLi>
+              {!link.restriction ? (
+                <StyledLi key={link.path}>
+                  <StyledLink
+                    className={({ isActive }) =>
+                      isActive ? "active-link-menu" : ""
+                    }
+                    to={link.path}
+                  >
+                    {link.text}
+                  </StyledLink>
+                </StyledLi>
+              ) : (
+                LinkWithRestriction(role, link)
+              )}
             </>
-          )}
+          ))}
 
           <StyledLi>
             <Button
@@ -120,63 +100,24 @@ const NavAdmin = () => {
       </StyledContainerAvatar>
 
       <StyledContainerLinks desktop>
-        <StyledLi>
-          <StyledLink
-            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-            to={"/estadisticas"}
-          >
-            Estadisticas
-          </StyledLink>
-        </StyledLi>
-        <StyledLi>
-          <StyledLink
-            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-            to={"/"}
-          >
-            Mi negocio
-          </StyledLink>
-        </StyledLi>
-        <StyledLi>
-          <StyledLink
-            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-            to={"/admin/productos"}
-          >
-            Mis productos
-          </StyledLink>
-        </StyledLi>
-        <StyledLi>
-          <StyledLink
-            className={({ isActive }) => (isActive ? "active-link-menu" : "")}
-            to={"/admin/mi-cuenta"}
-          >
-            Mi cuenta
-          </StyledLink>
-        </StyledLi>
-
-        {role === "ADMIN" && (
+        {links.map((link) => (
           <>
-            <StyledLi>
-              <StyledLink
-                className={({ isActive }) =>
-                  isActive ? "active-link-menu" : ""
-                }
-                to={"/"}
-              >
-                Usuarios
-              </StyledLink>
-            </StyledLi>
-            <StyledLi>
-              <StyledLink
-                className={({ isActive }) =>
-                  isActive ? "active-link-menu" : ""
-                }
-                to={"/"}
-              >
-                Tiendas
-              </StyledLink>
-            </StyledLi>
+            {!link.restriction ? (
+              <StyledLi key={link.path}>
+                <StyledLink
+                  className={({ isActive }) =>
+                    isActive ? "active-link-menu" : ""
+                  }
+                  to={link.path}
+                >
+                  {link.text}
+                </StyledLink>
+              </StyledLi>
+            ) : (
+              LinkWithRestriction(role, link)
+            )}
           </>
-        )}
+        ))}
       </StyledContainerLinks>
 
       <StyledBottomContainer>

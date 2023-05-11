@@ -11,6 +11,15 @@ const useAdminLayout = () => {
   const [role, setRole] = useState<"SELLER" | "CLIENT" | "ADMIN">("CLIENT");
   const [showModal, setShowModal] = useState<boolean>(false);
 
+  const links = [
+    { path: "/admin/estadisticas", restriction: false, text: "Estadisticas" },
+    { path: "/admin", restriction: false, text: "Mi negocio" },
+    { path: "/admin/productos", restriction: false, text: "Mis productos" },
+    { path: "/admin/mi-cuenta", restriction: false, text: "Mi cuenta" },
+    { path: "/admin/usuarios", restriction: true, text: "Usuarios" },
+    { path: "/admin/tiendas", restriction: true, text: "Tiendas" },
+  ];
+
   const handleStateModal = () => {
     setShowModal((lastState) => !lastState);
   };
@@ -22,7 +31,7 @@ const useAdminLayout = () => {
     }
   }, [data]);
 
-  return { showModal, userName, role, handleStateModal };
+  return { showModal, userName, role, handleStateModal, links };
 };
 
 export default useAdminLayout;
