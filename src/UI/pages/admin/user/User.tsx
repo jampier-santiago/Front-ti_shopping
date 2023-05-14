@@ -32,13 +32,18 @@ const User = () => {
     handleStateForm,
     showToast,
     handleStateToast,
+    infoToast,
   } = useUserApplication();
 
   return (
     <StyledMain>
       {showToast && (
-        <Toast variant="success" timeHidden={5000} close={handleStateToast}>
-          Datos actualizados con exito
+        <Toast
+          variant={infoToast.state}
+          timeHidden={5000}
+          close={handleStateToast}
+        >
+          {infoToast.msg}
         </Toast>
       )}
 
@@ -60,7 +65,7 @@ const User = () => {
         )}
 
         <Input
-          id="phoneNumber"
+          id="num_telephone"
           placeholder="Tu numero de telefono"
           textLabel="Tu numero de telefono"
           register={register}
@@ -68,7 +73,7 @@ const User = () => {
           required
           disabled={!isEditingData}
         />
-        {errors.phoneNumber && (
+        {errors.num_telephone && (
           <StyledErrors>Este campo es obligatorio</StyledErrors>
         )}
 
@@ -87,7 +92,7 @@ const User = () => {
 
         <Input
           id="address"
-          placeholder="Tu correo electronico"
+          placeholder="Tu direccion"
           textLabel="Tu correo electronico"
           register={register}
           dark
@@ -95,6 +100,43 @@ const User = () => {
           disabled={!isEditingData}
         />
         {errors.address && (
+          <StyledErrors>Este campo es obligatorio</StyledErrors>
+        )}
+
+        <Input
+          id="CVC"
+          placeholder="Tu CVC de tu tarjeta"
+          textLabel="Tu correo electronico"
+          register={register}
+          dark
+          required
+          disabled={!isEditingData}
+        />
+        {errors.CVC && <StyledErrors>Este campo es obligatorio</StyledErrors>}
+
+        <Input
+          id="N_credit_card"
+          placeholder="Tu numero de tarjeta"
+          textLabel="Tu correo electronico"
+          register={register}
+          dark
+          required
+          disabled={!isEditingData}
+        />
+        {errors.N_credit_card && (
+          <StyledErrors>Este campo es obligatorio</StyledErrors>
+        )}
+
+        <Input
+          id="credit_card_expiration_date"
+          placeholder="Tu fecha de expiracion de tu tarjeta"
+          textLabel="Tu correo electronico"
+          register={register}
+          dark
+          required
+          disabled={!isEditingData}
+        />
+        {errors.credit_card_expiration_date && (
           <StyledErrors>Este campo es obligatorio</StyledErrors>
         )}
 
@@ -112,7 +154,10 @@ const User = () => {
       </StyledForm>
 
       {!isEditingData && (
-        <StyledButton text="Editar datos" onClick={handleStateForm} />
+        <StyledButton
+          text="Quiero editar mis datos"
+          onClick={handleStateForm}
+        />
       )}
     </StyledMain>
   );

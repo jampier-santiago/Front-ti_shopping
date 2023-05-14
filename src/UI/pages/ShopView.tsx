@@ -60,7 +60,7 @@ const ShopView = () => {
       <StyleSectionShop>
         {stores &&
           stores.map((shop) => (
-            <Link to={`/shop/${shop?.id}`}>
+            <Link to={`/shop/${shop?.Id_stores}`} key={shop?.Id_stores}>
               <Tilt tiltReverse>
                 <StyleSquareShop
                   style={{ backgroundImage: `url('${shop?.logo}')` }}
