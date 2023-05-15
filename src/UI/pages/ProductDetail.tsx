@@ -9,7 +9,7 @@ const ProductDetail: FC = () => {
   //components
   const { useComponents } = useViews();
   const { Button, Input } = useComponents();
-  const { currentPositionSlider, handleCurrentPositionSlider, views } =
+  const { currentPositionSlider, handleCurrentPositionSlider, views, product } =
     useProducDetailApplication();
 
   //styles
@@ -59,7 +59,7 @@ const ProductDetail: FC = () => {
         </article>
 
         <StyleArticle>
-          <Styletitle>Aquí va el nombre del producto</Styletitle>
+          <Styletitle>{product?.Name_product}</Styletitle>
 
           <StyleIcon>
             <FontAwesomeIcon icon={faStar} />
@@ -69,13 +69,7 @@ const ProductDetail: FC = () => {
             <FontAwesomeIcon icon={faStar} />
           </StyleIcon>
 
-          <StyleParagraph>
-            Aquí va la descripción del produicto Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quo velit impedit ducimus eum corrupti
-            veritatis perspiciatis! Repudiandae, sapiente! Esse, cupiditate?
-            Dolores consequatur, reprehenderit exercitationem incidunt doloribus
-            nam vitae officia soluta?
-          </StyleParagraph>
+          <StyleParagraph>{product?.Description_product}</StyleParagraph>
 
           <StyleText>Tu producto llega en menos de 3 días </StyleText>
 

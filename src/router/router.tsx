@@ -40,7 +40,7 @@ const useRouter = () => {
           </MainLayout>
         }
       />
-      <Route path="/shop-view" element={<ShopView />} />
+      <Route path="/shop" element={<ShopView />} />
       <Route
         path="/admin/*"
         element={<PrivateRoute element={<RouterAdmin />} />}
@@ -49,7 +49,7 @@ const useRouter = () => {
       <Route path="/*" element={<Navigate to="/" />} />
 
       <Route
-        path="/shop-detail"
+        path="/shop/:id"
         element={
           <MainLayout>
             <ShopDetail />
@@ -57,7 +57,7 @@ const useRouter = () => {
         }
       />
       <Route
-        path="/product-detail"
+        path="/product/:id"
         element={
           <MainLayout>
             <ProductDetail />

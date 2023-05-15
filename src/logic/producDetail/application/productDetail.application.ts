@@ -1,9 +1,18 @@
 // Packages
 import { useState, useEffect } from "react";
+import { ResponseProductDetail } from "../data/productDetail.models";
+import { useParams } from "react-router-dom";
+
+// Endpoints
+import endpoint from "logic/api/api.adapter";
 
 const useProducDetailApplication = () => {
+  const params = useParams();
   //states
   const [currentPositionSlider, setCurrentPositionSlider] = useState<number>(0);
+
+  //states
+  const [product, setProduct] = useState<ResponseProductDetail>();
 
   const views = ["1", "2", "3"];
 
@@ -13,6 +22,18 @@ const useProducDetailApplication = () => {
     if (position <= elements.length - 1 && position >= 0) {
       setCurrentPositionSlider(position);
     }
+  };
+
+  //functions
+  const getAllProducts = () => {
+    endpoint()
+      .get({
+        url: `/products/${params.id}`,
+      })
+      .then((result) => {
+        setProduct((result as any)[0]);
+      })
+      .catch((error) => console.log(error));
   };
 
   const moveSlider = () => {
@@ -34,8 +55,10 @@ const useProducDetailApplication = () => {
 
   useEffect(() => {
     moveSlider();
+    getAllProducts();
   }, [currentPositionSlider]);
 
-  return { currentPositionSlider, handleCurrentPositionSlider, views };
+  return { currentPositionSlider, handleCurrentPositionSlider, views, product };
 };
+
 export default useProducDetailApplication;

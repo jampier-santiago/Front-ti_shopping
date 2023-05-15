@@ -1,12 +1,11 @@
 import useViews from "..";
 import useStyles from "styles";
-import Tilt from "react-parallax-tilt";
-import { Link } from "react-router-dom";
+
 //assets
 import bgRight from "assets/img/login.jpg";
 
 //controller
-import useShopDetailApplications from "logic/shopsDetail/application/shops.application";
+import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail.application";
 
 const ShopDetail = () => {
   //constroller
@@ -41,10 +40,14 @@ const ShopDetail = () => {
         ></StyleRigthtSection>
       </StyleMain>
 
-      <StyleSectionShop>
+      {JSON.stringify(stores)}
+
+      <h2>{stores?.business_description}</h2>
+      <h2>{stores?.name_store}</h2>
+      {/* <StyleSectionShop>
         {stores &&
           stores.map((shop) => (
-            <Link to={`/shop/${shop?.id}`}>
+            <Link to={`/shop/${shop?.Id_stores}`}>
               <Tilt tiltReverse>
                 <StyleSquareShop
                   style={{ backgroundImage: `url('${shop?.logo}')` }}
@@ -52,7 +55,7 @@ const ShopDetail = () => {
               </Tilt>
             </Link>
           ))}
-      </StyleSectionShop>
+      </StyleSectionShop> */}
     </main>
   );
 };
