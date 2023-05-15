@@ -9,6 +9,10 @@ const StyledTitle = styled.h1`
   ${tw`text-3xl font-bold text-center`}
 `;
 
+const StyledRowMoreProducts = styled.div`
+  ${tw`box-border w-2/4 mx-auto mb-4`}
+`;
+
 const StledContainerProducts = styled.section`
   ${tw`box-content w-full max-w-[800px] mx-auto `}
 `;
@@ -48,6 +52,7 @@ const useProductsStyles = () => {
     StyledContainerIcons,
     StyledContainerEmptyProducts,
     StyledTitleEmptyProducts,
+    StyledRowMoreProducts,
   };
 };
 
