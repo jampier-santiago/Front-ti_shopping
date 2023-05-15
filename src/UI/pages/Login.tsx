@@ -25,6 +25,7 @@ const Login = () => {
     StyleRow,
     StyleRigthtSection,
     StyleErrorInput,
+    StyledlinkLogin,
   } = useLoginStyles();
 
   //constrollers
@@ -36,6 +37,7 @@ const Login = () => {
     errors,
     isLogin,
     setUpdateRoute,
+    onSubmitRegister,
   } = useLoginApplication();
 
   return (
@@ -80,7 +82,7 @@ const Login = () => {
                 <Button
                   onClick={() => {
                     redirectUrl("/register");
-                    setUpdateRoute(true);
+                    setUpdateRoute((state) => !state);
                   }}
                   text="Crear una cuenta"
                 />
@@ -90,7 +92,7 @@ const Login = () => {
         ) : (
           <>
             <StyleTitle>Register</StyleTitle>
-            <StyleForm>
+            <StyleForm onSubmit={handleSubmit(onSubmitRegister)}>
               {/* nombre de usuario*/}
               <StyleRow>
                 <Input
@@ -155,22 +157,6 @@ const Login = () => {
                 )}
               </StyleRow>
 
-              {/* Rol usuario */}
-              <StyleRow>
-                <Input
-                  id="role"
-                  type={"text"}
-                  placeholder="Escriba su apellido"
-                  textLabel="Escriba su Rol"
-                  register={register}
-                  required
-                />
-
-                {errors.role && (
-                  <StyleErrorInput>Este campo es requerido</StyleErrorInput>
-                )}
-              </StyleRow>
-
               {/* birthDate usuario */}
               <StyleRow>
                 <Input
@@ -222,6 +208,15 @@ const Login = () => {
               <StyleRow>
                 <Button text="Registrar" type="submit" />
               </StyleRow>
+
+              <StyledlinkLogin
+                onClick={() => {
+                  redirectUrl("/login");
+                  setUpdateRoute((state) => !state);
+                }}
+              >
+                Ya tengo cuenta
+              </StyledlinkLogin>
             </StyleForm>
           </>
         )}

@@ -51,6 +51,10 @@ const useLoginApplication = () => {
       .catch((error) => console.log(error));
   };
 
+  const onSubmitRegister = async (data: any) => {
+    console.log(data);
+  };
+
   const redirectUrl = (url: string) => {
     navigate(url);
   };
@@ -70,6 +74,7 @@ const useLoginApplication = () => {
     errors,
     isLogin,
     setUpdateRoute,
+    onSubmitRegister,
   };
 };
 export default useLoginApplication;

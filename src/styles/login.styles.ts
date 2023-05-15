@@ -1,20 +1,21 @@
 import styled from "styled-components";
 import tw from "twin.macro";
+import { Link } from "react-router-dom";
 
 const StyledMain = styled.main`
-  ${tw`box-border flex w-full flex-col lg:flex-row`}
+  ${tw`box-border flex flex-col w-full lg:flex-row`}
 `;
 
 const StyleLeftSection = styled.section`
-  ${tw`lg:w-2/6 h-screen bg-black box-border p-5 flex flex-col justify-center`}
+  ${tw`box-border flex flex-col justify-center h-screen p-5 bg-black lg:w-2/6`}
 `;
 
 const StyleRigthtSection = styled.div`
-  ${tw`lg:w-4/6 h-screen bg-center bg-cover hidden lg:block`}
+  ${tw`hidden h-screen bg-center bg-cover lg:w-4/6 lg:block`}
 `;
 
 const StyleTitle = styled.h1`
-  ${tw`text-white text-4xl font-bold`}
+  ${tw`text-4xl font-bold text-white`}
 `;
 
 const StyleForm = styled.form`
@@ -33,8 +34,12 @@ const StyleRow = styled.div`
   ${tw`w-full mb-8`}
 `;
 
+const StyledlinkLogin = styled.span`
+  ${tw`block mx-auto text-lg font-medium text-center text-primary`}
+`;
+
 const StyleErrorInput = styled.span`
-  ${tw`text-red-500 font-bold text-lg mb-4`}
+  ${tw`mb-4 text-lg font-bold text-red-500`}
 `;
 const useLoginStyles = () => {
   return {
@@ -45,6 +50,7 @@ const useLoginStyles = () => {
     StyleRow,
     StyleRigthtSection,
     StyleErrorInput,
+    StyledlinkLogin,
   };
 };
 
