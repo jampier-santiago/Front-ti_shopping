@@ -13,7 +13,7 @@ const useAdminLayout = () => {
 
   const links = [
     { path: "/admin/estadisticas", restriction: false, text: "Estadisticas" },
-    { path: "/admin", restriction: false, text: "Mi negocio" },
+    { path: "/admin/mi-negocio", restriction: false, text: "Mi negocio" },
     { path: "/admin/productos", restriction: false, text: "Mis productos" },
     { path: "/admin/mi-cuenta", restriction: false, text: "Mi cuenta" },
     { path: "/admin/usuarios", restriction: true, text: "Usuarios" },
