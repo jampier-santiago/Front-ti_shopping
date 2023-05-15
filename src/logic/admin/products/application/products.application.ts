@@ -1,34 +1,25 @@
-import { useNavigate } from "react-router-dom";
 // Packages
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
+
+// Interfaces
+import { ProductResponse } from "../data/product.data";
+
+// Endpoints
+import endpoint from "logic/api/api.adapter";
 
 const useProductsAdminApplication = () => {
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
 
+  const { id, token } = useSelector((state: RootState) => state.auth);
+
   // States
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: "Computer",
-      description: "Prueba de este endpoint",
-      price: "2000",
-      category: "1",
-      store: "1",
-      brand: "Apple",
-    },
-    {
-      id: 2,
-      name: "Computer 2",
-      description: "Prueba de este endpoint",
-      price: "2000",
-      category: "1",
-      store: "1",
-      brand: "Apple",
-    },
-  ]);
+  const [products, setProducts] = useState<Array<ProductResponse>>([]);
   const [showToast, setShowToast] = useState<boolean>(false);
 
   // Functions
@@ -44,11 +35,15 @@ const useProductsAdminApplication = () => {
       confirmButtonColor: "#426E86",
     }).then(({ isConfirmed }) => {
       if (isConfirmed) {
-        const temporaryData = [...products];
-
-        const newData = temporaryData.filter((product) => product.id !== id);
-
-        setProducts(newData);
+        endpoint()
+          .deleteEndpoint({
+            url: `/products/delete/${id}`,
+            headers: { "x-token": token },
+          })
+          .then(() => {
+            setShowToast(true);
+          })
+          .catch((error) => console.log(error));
       }
     });
   };
@@ -60,6 +55,19 @@ const useProductsAdminApplication = () => {
   const goToMakeProduct = () => {
     navigate("crear");
   };
+
+  const getAllProducts = () => {
+    endpoint()
+      .get({ url: `/products/${id}` })
+      .then((result) => {
+        setProducts(result as unknown as Array<ProductResponse>);
+      })
+      .catch((error) => console.log(error.response));
+  };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
   return {
     products,

@@ -24,6 +24,7 @@ const Products = () => {
     StyledContainerIcons,
     StyledContainerEmptyProducts,
     StyledTitleEmptyProducts,
+    StyledRowMoreProducts,
   } = useProductsdminStyles();
 
   // Components
@@ -53,14 +54,20 @@ const Products = () => {
 
       <StyledTitle>Tus productos</StyledTitle>
 
+      {products.length > 0 && (
+        <StyledRowMoreProducts>
+          <Button text="Agregar nuevo producto" />
+        </StyledRowMoreProducts>
+      )}
+
       <StledContainerProducts>
         {products.length > 0 ? (
           products.map((product) => (
-            <StyledRow key={product.id}>
+            <StyledRow key={product.Id_product}>
               <StyledNameProduct>
-                {product.name.length > 20
-                  ? `${product.name.substring(0, 19)}...`
-                  : product.name}
+                {product.Name_product.length > 20
+                  ? `${product.Name_product.substring(0, 19)}...`
+                  : product.Name_product}
               </StyledNameProduct>
 
               <StyledContainerIcons>
@@ -68,11 +75,13 @@ const Products = () => {
                   src={iconEdit}
                   alt="Icono de un lapiz"
                   title="Icono de un lapiz"
-                  onClick={() => goToEdit(product.id)}
+                  onClick={() => goToEdit(product.Id_product)}
                 />
 
                 <StyledIcon
-                  onClick={() => handleStateModal(product.name, product.id)}
+                  onClick={() =>
+                    handleStateModal(product.Name_product, product.Id_product)
+                  }
                   src={iconDelete}
                   alt="Icono de una caneca de basura"
                   title="Icono de una caneca de basura"
