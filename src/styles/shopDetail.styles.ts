@@ -22,17 +22,18 @@ const StyleSectionShop = styled.section`
 `;
 
 const StyleTittle = styled.h1`
-  ${tw`text-while z-10 text-8xl mix-blend-difference`}
+  ${tw`text-black text-5xl flex justify-center [line-height: 0%]`}
 `;
 
 const StyleSubTittle = styled.h2`
-  ${tw` text-while z-10 max-w-[60%] text-center mix-blend-difference`}
+  ${tw` text-black   flex justify-center  [line-height: 1vw] [overflow-wrap: break-word]
+  `}
 `;
 const StyleLeftSection = styled.section`
-  ${tw`lg:w-2/6 h-screen bg-black box-border p-5 flex justify-center`}
+  ${tw`lg:w-4/6 h-full bg-blue-100 box-border  p-10 justify-center   `}
 `;
 const StyleRigthtSection = styled.div`
-  ${tw`lg:w-4/6 h-screen bg-center bg-cover hidden lg:block`}
+  ${tw`lg:w-2/6 h-screen bg-center bg-cover hidden lg:block`}
 `;
 const useShopDetailStyes = () => {
   return {

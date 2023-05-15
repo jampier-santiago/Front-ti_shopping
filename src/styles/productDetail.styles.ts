@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledContainerSlider = styled.article`
-  ${tw`bg-red-500 flex overflow-hidden w-full h-[200px] lg:w-[600px] lg:h-[500px]`}
+  ${tw`bg-blue-100 flex overflow-hidden w-full h-[200px] lg:w-[600px] lg:h-[500px]`}
 `;
 
 const StyledViewSlider = styled.article`
@@ -14,19 +14,19 @@ const StyleMain = styled.main`
 `;
 
 const StyleArticle = styled.article`
-  ${tw` bg-red-500 w-full h-full lg:w-[600px] lg:h-[500px]`}
+  ${tw` bg-blue-300 w-full h-full lg:w-[600px] lg:h-[500px]`}
 `;
 
 const StyleIcon = styled.div`
-  ${tw` text-blue-300 `}
+  ${tw` text-while `}
 `;
 
 const StyleText = styled.text`
-  ${tw`text-white text-2xl font-bold`}
+  ${tw`text-black text-2xl font-bold flex justify-center`}
 `;
 
 const Styletitle = styled.h1`
-  ${tw`text-white text-2xl font-bold`}
+  ${tw`text-black text-2xl font-bold flex justify-center`}
 `;
 
 const StyleParagraph = styled.p`
@@ -34,7 +34,7 @@ const StyleParagraph = styled.p`
 `;
 
 const StyleButton = styled.button`
-  ${tw`inline-block px-4 py-2 text-lg font-bold text-center uppercase bg-blue-500  rounded-md shadow-md transition-colors duration-300 ease-in-out`}
+  ${tw` px-4 py-2 text-lg font-bold text-center uppercase bg-blue-500  rounded-md shadow-md transition-colors duration-300 ease-in-out relative  flex justify-center`}
 
   &:hover {
     ${tw`bg-blue-200 cursor-pointer`}

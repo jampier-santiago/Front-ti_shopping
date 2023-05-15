@@ -18,7 +18,6 @@ const ShopDetail = () => {
   //styles
   const { useShopDetailStyes } = useStyles();
   const {
-    StyledDiv,
     StyleMain,
     StyleDecorationHero,
     StyleSquareShop,
@@ -32,30 +31,22 @@ const ShopDetail = () => {
   return (
     <main>
       <StyleMain>
-        <StyleLeftSection>
-          <StyleTittle>info del producto </StyleTittle>
-        </StyleLeftSection>
         <StyleRigthtSection
           style={{ backgroundImage: `url('${bgRight}')` }}
         ></StyleRigthtSection>
+        <StyleLeftSection>
+          <StyleTittle>{stores?.name_store}</StyleTittle>
+          <StyleSubTittle>{stores?.business_description}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Email}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Address}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Facebook}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Instagram}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Num_telephone}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Page_web}</StyleSubTittle>
+        </StyleLeftSection>
       </StyleMain>
 
-      {JSON.stringify(stores)}
-
-      <h2>{stores?.business_description}</h2>
-      <h2>{stores?.name_store}</h2>
-      {/* <StyleSectionShop>
-        {stores &&
-          stores.map((shop) => (
-            <Link to={`/shop/${shop?.Id_stores}`}>
-              <Tilt tiltReverse>
-                <StyleSquareShop
-                  style={{ backgroundImage: `url('${shop?.logo}')` }}
-                ></StyleSquareShop>
-              </Tilt>
-            </Link>
-          ))}
-      </StyleSectionShop> */}
+      {/* {JSON.stringify(stores)} */}
     </main>
   );
 };

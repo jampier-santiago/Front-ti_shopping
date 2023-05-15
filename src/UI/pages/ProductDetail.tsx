@@ -69,11 +69,9 @@ const ProductDetail: FC = () => {
             <FontAwesomeIcon icon={faStar} />
           </StyleIcon>
 
-          <StyleParagraph>{product?.Description_product}</StyleParagraph>
+          <StyleText>{product?.Description_product}</StyleText>
 
-          <StyleText>Tu producto llega en menos de 3 días </StyleText>
-
-          <StyleText>Aquí va el precio</StyleText>
+          <StyleText>${product?.Price}</StyleText>
 
           <StyleButton>COMPRAR</StyleButton>
         </StyleArticle>
