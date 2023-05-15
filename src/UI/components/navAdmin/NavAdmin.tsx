@@ -14,7 +14,7 @@ import { logOut } from "redux/slices/auth/thunk";
 // Assets
 import iconMenu from "assets/icons/menu.png";
 
-const LinkWithRestriction = (role: string, link: any) => {
+const LinkWithRestriction = (role: string, link: any, closeModal?: any) => {
   // Styles
   const { StyledLink, StyledLi } = useStyles();
 
@@ -23,6 +23,7 @@ const LinkWithRestriction = (role: string, link: any) => {
       <StyledLink
         className={({ isActive }) => (isActive ? "active-link-menu" : "")}
         to={link.path}
+        onClick={closeModal}
       >
         {link.text}
       </StyledLink>
@@ -68,12 +69,13 @@ const NavAdmin = () => {
                       isActive ? "active-link-menu" : ""
                     }
                     to={link.path}
+                    onClick={handleStateModal}
                   >
                     {link.text}
                   </StyledLink>
                 </StyledLi>
               ) : (
-                LinkWithRestriction(role, link)
+                LinkWithRestriction(role, link, handleStateModal)
               )}
             </>
           ))}
