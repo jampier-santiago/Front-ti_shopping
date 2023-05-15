@@ -6,6 +6,7 @@ import bgRight from "assets/img/login.jpg";
 
 //controller
 import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail.application";
+import Products from "./admin/products";
 
 const ShopDetail = () => {
   //constroller
@@ -31,9 +32,9 @@ const ShopDetail = () => {
   return (
     <main>
       <StyleMain>
-        <StyleRigthtSection
-          style={{ backgroundImage: `url('${bgRight}')` }}
-        ></StyleRigthtSection>
+        <StyleRigthtSection>
+          <img src={stores?.logo} alt="Logo tienda" />
+        </StyleRigthtSection>
         <StyleLeftSection>
           <StyleTittle>{stores?.name_store}</StyleTittle>
           <StyleSubTittle>{stores?.business_description}</StyleSubTittle>

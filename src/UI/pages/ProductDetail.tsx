@@ -34,6 +34,7 @@ const ProductDetail: FC = () => {
             {views.map((element) => (
               <StyledViewSlider key={element} className="styled-view-slider">
                 <span>{element}</span>
+                <img src={product?.image} alt="" />
               </StyledViewSlider>
             ))}
           </StyledContainerSlider>

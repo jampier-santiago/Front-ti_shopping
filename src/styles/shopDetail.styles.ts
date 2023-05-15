@@ -6,7 +6,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyleMain = styled.header`
-  ${tw` w-full flex justify-center items-center bg-white  text-red-500 h-[45vh] relative overflow-hidden  `}
+  ${tw` w-full flex justify-center items-center bg-white  text-red-500 relative overflow-hidden  `}
 `;
 
 const StyleDecorationHero = styled.div`
@@ -14,7 +14,7 @@ const StyleDecorationHero = styled.div`
 `;
 
 const StyleSquareShop = styled.div`
-  ${tw`w-80 h-80  rounded-xl bg-center bg-cover cursor-pointer `}
+  ${tw`w-80 rounded-xl bg-center bg-cover cursor-pointer `}
 `;
 
 const StyleSectionShop = styled.section`
@@ -22,18 +22,19 @@ const StyleSectionShop = styled.section`
 `;
 
 const StyleTittle = styled.h1`
-  ${tw`text-black text-5xl flex justify-center [line-height: 0%]`}
+  ${tw`text-black text-5xl flex justify-center `}
 `;
 
 const StyleSubTittle = styled.h2`
-  ${tw` text-black   flex justify-center  [line-height: 1vw] [overflow-wrap: break-word]
+  ${tw` text-black   flex justify-center 
+
   `}
 `;
 const StyleLeftSection = styled.section`
-  ${tw`lg:w-4/6 h-full bg-blue-100 box-border  p-10 justify-center   `}
+  ${tw`lg:w-4/6  bg-blue-100 box-border  p-10   `}
 `;
 const StyleRigthtSection = styled.div`
-  ${tw`lg:w-2/6 h-screen bg-center bg-cover hidden lg:block`}
+  ${tw`w-80 h-80  `}
 `;
 const useShopDetailStyes = () => {
   return {
