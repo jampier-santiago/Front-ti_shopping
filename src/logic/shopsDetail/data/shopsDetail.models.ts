@@ -1,4 +1,4 @@
-export interface ResponseShops {
+export interface ResponseShopDetail {
   Address: string;
   Email: string;
   Facebook: string;
@@ -16,12 +16,12 @@ export interface ResponseShops {
   state: number;
 }
 
-export interface RequestMakeShop {
+export interface RequestMakeShopDetail {
   name: string;
   //continuar con postman
   token: string;
 }
 
-export interface ResponseMakeShop {
+export interface ResponseMakeShopDetail {
   //validar paramateros con postman
 }
