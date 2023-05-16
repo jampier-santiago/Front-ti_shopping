@@ -40,7 +40,14 @@ const useRouter = () => {
           </MainLayout>
         }
       />
-      <Route path="/shop" element={<ShopView />} />
+      <Route
+        path="/shop"
+        element={
+          <MainLayout>
+            <ShopView />
+          </MainLayout>
+        }
+      />
       <Route
         path="/admin/*"
         element={<PrivateRoute element={<RouterAdmin />} />}

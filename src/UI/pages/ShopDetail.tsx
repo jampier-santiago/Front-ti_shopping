@@ -39,7 +39,7 @@ const ShopDetail = () => {
       <StyleMain>
         <StyleLeftSection>
           <StyleTittle>{stores?.name_store}</StyleTittle>
-          <StyleSubTittle>{stores?.business_description}</StyleSubTittle>
+          <StyleSubTittle>{stores?.Business_description}</StyleSubTittle>
           <StyleSubTittle>{stores?.Email}</StyleSubTittle>
 
           <StyleSubTittle>{stores?.Num_telephone}</StyleSubTittle>
@@ -58,8 +58,6 @@ const ShopDetail = () => {
           <img src={stores?.logo} alt="Logo tienda" />
         </StyleRigthtSection>
       </StyleMain>
-
-      {/* {JSON.stringify(stores)} */}
     </main>
   );
 };
