@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledMain = styled.main`
-  ${tw`box-border flex flex-col w-full lg:flex-row`}
+  ${tw`box-border relative flex flex-col w-full lg:flex-row`}
 `;
 
 const StyleLeftSection = styled.section`

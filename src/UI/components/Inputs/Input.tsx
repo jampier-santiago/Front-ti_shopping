@@ -24,6 +24,7 @@ const Input: FC<Props> = ({
         id={id}
         dark={dark}
         disabled={disabled}
+        autoComplete="off"
       />
     </StylesRow>
   );

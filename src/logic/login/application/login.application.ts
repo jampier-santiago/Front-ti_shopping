@@ -26,11 +26,14 @@ const useLoginApplication = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm();
 
   //states
   const [isLogin, setIsLogin] = useState(false);
   const [updateRoute, setUpdateRoute] = useState(false);
+  const [showToast, setShowToast] = useState<boolean>(false);
+
   //functions
   const onSubmit = async (data: any) => {
     endpoint()
@@ -52,7 +55,76 @@ const useLoginApplication = () => {
   };
 
   const onSubmitRegister = async (data: any) => {
-    console.log(data);
+    const {
+      birthDate,
+      email,
+      valuePassword,
+      userName,
+      surname,
+      password,
+      phoneNumber,
+      address,
+    } = data;
+
+    if (password !== valuePassword) {
+      setError("password", { message: "Los campos no son iguales" });
+      setError("valuePassword", {
+        message: "Los campos no son iguales",
+      });
+      return;
+    }
+
+    const dataEndpoint = {
+      firstName: userName.split(" ")[0],
+      secondName: userName.split(" ")[1] || "",
+      surname: surname.split(" ")[0],
+      secondSurname: surname.split(" ")[1],
+      phoneNumber,
+      email,
+      address,
+      password,
+      birthDate,
+    };
+
+    endpoint()
+      .post({ url: `/auth/new-user`, data: dataEndpoint })
+      .then((result) => {
+        endpoint()
+          .post<AxiosResponse>({
+            url: `/auth/login`,
+            data: {
+              email,
+              password,
+            },
+          })
+          .then(async (result) => {
+            const data = result as unknown as ResponseLogin;
+
+            await dispatch(logIn(data) as any);
+
+            navigate("/admin/estadisticas");
+          })
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => {
+        console.log(error);
+        endpoint()
+          .post<AxiosResponse>({
+            url: `/auth/login`,
+            data: {
+              email,
+              password,
+            },
+          })
+          .then(async (result) => {
+            const data = result as unknown as ResponseLogin;
+
+            await dispatch(logIn(data) as any);
+
+            navigate("/admin/estadisticas");
+          })
+          .catch((error) => console.log(error));
+      });
   };
 
   const redirectUrl = (url: string) => {
@@ -75,6 +147,8 @@ const useLoginApplication = () => {
     isLogin,
     setUpdateRoute,
     onSubmitRegister,
+    showToast,
+    setShowToast,
   };
 };
 export default useLoginApplication;

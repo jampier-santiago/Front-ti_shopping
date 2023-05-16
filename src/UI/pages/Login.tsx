@@ -13,7 +13,7 @@ import bgRight from "assets/img/login.jpg";
 const Login = () => {
   //components
   const { useComponents } = useViews();
-  const { Button, Input } = useComponents();
+  const { Button, Input, Toast } = useComponents();
 
   //styles
   const { useLoginStyles } = useStyles();
@@ -38,10 +38,22 @@ const Login = () => {
     isLogin,
     setUpdateRoute,
     onSubmitRegister,
+    showToast,
+    setShowToast,
   } = useLoginApplication();
 
   return (
     <StyledMain>
+      {showToast && (
+        <Toast
+          close={() => setShowToast(false)}
+          timeHidden={5000}
+          variant="error"
+        >
+          <span>Se produjo un error, intentelo nuevamente</span>
+        </Toast>
+      )}
+
       {/* form */}
       <StyleLeftSection>
         {isLogin ? (
@@ -91,7 +103,7 @@ const Login = () => {
           </>
         ) : (
           <>
-            <StyleTitle>Register</StyleTitle>
+            <StyleTitle>Registro</StyleTitle>
             <StyleForm onSubmit={handleSubmit(onSubmitRegister)}>
               {/* nombre de usuario*/}
               <StyleRow>
@@ -157,6 +169,20 @@ const Login = () => {
                 )}
               </StyleRow>
 
+              <StyleRow>
+                <Input
+                  id="address"
+                  placeholder="Escriba su dirección"
+                  textLabel="Escriba su dirección"
+                  register={register}
+                  required
+                />
+
+                {errors.address && (
+                  <StyleErrorInput>Este campo es requerido</StyleErrorInput>
+                )}
+              </StyleRow>
+
               {/* birthDate usuario */}
               <StyleRow>
                 <Input
@@ -185,14 +211,17 @@ const Login = () => {
                 />
 
                 {errors.password && (
-                  <StyleErrorInput>Este campo es requerido</StyleErrorInput>
+                  <StyleErrorInput>
+                    {(errors as any).password?.message ||
+                      "Este campo es requerido"}
+                  </StyleErrorInput>
                 )}
               </StyleRow>
 
               {/* confirm password usuario */}
               <StyleRow>
                 <Input
-                  id="valuedPassword"
+                  id="valuePassword"
                   type={"passsword"}
                   placeholder="Confirmar contraseña"
                   textLabel="Confirmar contraseña"
@@ -200,8 +229,11 @@ const Login = () => {
                   required
                 />
 
-                {errors.valuedPassword && (
-                  <StyleErrorInput>Este campo es requerido</StyleErrorInput>
+                {errors.valuePassword && (
+                  <StyleErrorInput>
+                    {(errors as any).valuePassword?.message ||
+                      "Este campo es requerido"}
+                  </StyleErrorInput>
                 )}
               </StyleRow>
 
