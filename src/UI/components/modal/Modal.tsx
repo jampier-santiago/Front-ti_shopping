@@ -4,11 +4,22 @@ import { FC } from "react";
 // Stlyes
 import useStyles from "./modal.styles";
 
-const Modal: FC = () => {
-  // Styles
-  const { StyledContainer } = useStyles();
+interface Props {
+  children: any;
+  onClose: () => void;
+}
 
-  return <StyledContainer></StyledContainer>;
+const Modal: FC<Props> = ({ children, onClose }) => {
+  // Styles
+  const { StyledContainer, StyledDecorationModal } = useStyles();
+
+  return (
+    <StyledContainer>
+      <StyledDecorationModal onClick={onClose} />
+
+      {children}
+    </StyledContainer>
+  );
 };
 
 export default Modal;

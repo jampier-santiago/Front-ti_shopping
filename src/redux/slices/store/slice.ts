@@ -8,7 +8,10 @@ export const shoppingCartSlice = createSlice({
       state.totalProducts += 1;
       (state.products as any[]).push(action.payload);
     },
-    removeProduct: (state, action) => {},
+    removeProduct: (state, action) => {
+      state.totalProducts -= 1;
+      (state.products as any[]).push(action.payload);
+    },
     resetShoppingCart: (state) => {
       state.products = [];
       state.totalProducts = 0;
