@@ -14,12 +14,12 @@ const StyleDecorationHero = styled.div`
 `;
 
 const StyleSquareShop = styled.div`
-  ${tw`w-80 rounded-xl bg-center bg-cover cursor-pointer `}
+  ${tw`w-80  h-80 rounded-xl bg-center bg-cover`}
 `;
 
-const StyleSectionShop = styled.section`
-  ${tw`grid grid-cols-3 mx-auto max-w-screen-lg `}
-`;
+// const StyleSectionShop = styled.section`
+//   ${tw`grid grid-cols-3 mx-auto max-w-screen-lg `}
+// `;
 
 const StyleTittle = styled.h1`
   ${tw`text-black text-5xl flex justify-center `}
@@ -34,14 +34,19 @@ const StyleLeftSection = styled.section`
   ${tw`lg:w-4/6 box-border  p-10   `}
 `;
 const StyleRigthtSection = styled.div`
-  & img {
-    ${tw`w-80 h-80  `}
+  & {
+    ${tw`w-80 h-80 bg-cover bg-center `}
   }
 `;
 
 const StyledIcon = styled.div`
   ${tw`flex items-center  space-x-4 bg-red-500`}
 `;
+
+const StyleSectionShop = styled.section`
+  ${tw`grid max-w-screen-lg grid-cols-3 mx-auto mt-12 `}
+`;
+
 const useShopDetailStyes = () => {
   return {
     StyledDiv,

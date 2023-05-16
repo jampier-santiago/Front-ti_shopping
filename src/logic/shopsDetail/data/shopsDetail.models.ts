@@ -16,6 +16,13 @@ export interface ResponseShopDetail {
   state: number;
 }
 
+export interface ResponseProducts {
+  Id_product: string | number;
+  Name_product: string;
+  Description_product: string;
+  image: string;
+}
+
 export interface RequestMakeShopDetail {
   name: string;
   //continuar con postman

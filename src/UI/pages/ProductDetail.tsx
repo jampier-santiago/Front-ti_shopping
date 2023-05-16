@@ -49,15 +49,14 @@ const ProductDetail: FC = () => {
       <StyledBody>
         <StyledSectionImages>
           <StyledContainerSlider>
-            {views.map((element) => (
+            {product?.image.split(",").map((element) => (
               <StyledViewSlider
                 key={element}
                 className="styled-view-slider"
-                style={{ backgroundImage: `url("${product?.image}")` }}
-              >
-                <span>{element}</span>
-                {/* <img src={p} alt="" /> */}
-              </StyledViewSlider>
+                style={{
+                  backgroundImage: `url("${element}")`,
+                }}
+              ></StyledViewSlider>
             ))}
           </StyledContainerSlider>
 

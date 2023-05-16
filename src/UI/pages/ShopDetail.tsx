@@ -2,9 +2,9 @@ import useViews from "..";
 import useStyles from "styles";
 
 //ASSETS
-import logo from "../../../assets/img/Logo_TI_Shopping.png";
+
 import iconFacebook from "../../assets/icons/Logo-facebook.png";
-import iconTwitter from "../../assets/icons/Logo-twitter.png";
+
 import iconInstagram from "../../assets/icons/Logo-instagram.png";
 
 //controller
@@ -14,7 +14,7 @@ import { store } from "redux/store";
 
 const ShopDetail = () => {
   //constroller
-  const { stores } = useShopDetailApplications();
+  const { stores, products } = useShopDetailApplications();
 
   //components
   const { useComponents } = useViews();
@@ -26,12 +26,12 @@ const ShopDetail = () => {
     StyleMain,
     StyleDecorationHero,
     StyleSquareShop,
-    StyleSectionShop,
     StyleTittle,
     StyleSubTittle,
     StyleLeftSection,
     StyleRigthtSection,
     StyledIcon,
+    StyleSectionShop,
   } = useShopDetailStyes();
 
   return (
@@ -54,10 +54,23 @@ const ShopDetail = () => {
             </a>
           </StyledIcon>
         </StyleLeftSection>
-        <StyleRigthtSection>
-          <img src={stores?.logo} alt="Logo tienda" />
-        </StyleRigthtSection>
+        <StyleRigthtSection
+          style={{
+            backgroundImage: `url("${stores?.logo}")`,
+          }}
+        ></StyleRigthtSection>
       </StyleMain>
+      <StyleSectionShop>
+        {products &&
+          products.map((product) => (
+            <StyleSquareShop
+              key={product?.Id_product}
+              style={{
+                backgroundImage: `url('${(product?.image.split(","))[0]}')`,
+              }}
+            ></StyleSquareShop>
+          ))}
+      </StyleSectionShop>
     </main>
   );
 };

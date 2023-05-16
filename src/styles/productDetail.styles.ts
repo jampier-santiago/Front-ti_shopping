@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledContainerSlider = styled.article`
-  ${tw`flex w-full h-full overflow-hidden bg-blue-100`}
+  ${tw`flex w-full h-full overflow-hidden bg-blue-100 `}
 `;
 
 const StyledBody = styled.section`
@@ -10,7 +10,7 @@ const StyledBody = styled.section`
 `;
 
 const StyledViewSlider = styled.article`
-  ${tw`flex-shrink-0 w-full h-full bg-green-300 bg-center bg-cover`}
+  ${tw`flex-shrink-0 w-full h-full bg-while bg-center bg-contain bg-no-repeat`}
 `;
 
 const StyledSectionImages = styled.div`
