@@ -1,160 +1,90 @@
 import useStyles from "../../styles";
 
 // Controllers
+import useHomeApplication from "logic/home/application/home.application";
+
+// Components
 import useComponents from "../components/index";
 
 //Assets
-import backImgPC from "../../../src/assets/img/Imagen-Computador.png";
-import backImg from "../../../src/assets/img/pngwing.com.png";
-import iconBolsa from "../../../src/assets/icons/bolsas-de-compra.png";
-import iconMoneda from "../../../src/assets/icons/monedas-de-un-dolar.png";
-import iconMapa from "../../../src/assets/icons/mapa-icon.png";
-import iconCarro from "../../../src/assets/icons/logistico-icon.png";
-import iconWindows from "../../../src/assets/icons/Logo-Windows.png";
+import imageHeader from "assets/img/boy-with-vr.png";
 
 const Home = () => {
   // Components
-  const { Button } = useComponents();
+  const { Button, CardProduct } = useComponents();
+
+  // Controllers
+  const { categories, products } = useHomeApplication();
 
   // Styles
   const { useHomeStyles } = useStyles();
   const {
-    StyledMain,
-    StylesTitle,
-    StylesInfoContent,
-    StyledInfoContentDiv,
-    StyledTitleH1,
-    StyledImgInfo,
-    StyledTitleSpan,
-    StyledinfoH2,
-    StyledCardDiv,
-    StyledCardContenDiv,
-    StyledFeatureDiv,
-    StyledBotton,
-    StyledFeatureCardDiv,
-    StyledFeatureP,
-    StyledTitleH2,
-    StyledLineBr,
+    StyledContainer,
+    StyledHeader,
+    StyledTitle,
+    StyledImageHeader,
+    StyledDescription,
+    StyledContainerSectionProducts,
+    StyledCategorias,
+    StyledContainerCategories,
+    StyledPillCategory,
+    StyledGridProducts,
   } = useHomeStyles();
 
   return (
-    <StyledMain>
-      <StylesInfoContent>
-        <StyledInfoContentDiv></StyledInfoContentDiv>
-        <StylesTitle>
-          <StyledTitleH1>
-            best online store and more sales,{" "}
-            <StyledTitleSpan>start with TI-Shopping</StyledTitleSpan>{" "}
-          </StyledTitleH1>
-          <StyledinfoH2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad fugit
-            commodi non necessitatibus qui at facere fugiat perferendis soluta
-            facilis! Et nihil, esse reiciendis est eius quaerat error eveniet
-            fuga.
-          </StyledinfoH2>
-          <p>chupelogonorreahpsarnozo</p>
-        </StylesTitle>
-        <div>
-          <StyledImgInfo src={backImg} alt="" />
-        </div>
-      </StylesInfoContent>
+    <StyledContainer>
+      {/* Header */}
+      <StyledHeader>
+        <StyledTitle>
+          TI Shopping: el destino donde maximizas tus ventas a un costo
+          reducido.
+        </StyledTitle>
 
-      <StyledCardContenDiv>
-        <StyledCardDiv>
-          <img src={iconBolsa} alt="" />
-          <h3>Variedad de Producto</h3>
-          <p>
-            TI_Shopping puedes acceder desde cualquier lugar y comprar lo que
-            mas te guste
-          </p>
-        </StyledCardDiv>
-        <StyledCardDiv>
-          <img src={iconMoneda} alt="" />
-          <h3>Paga Facil</h3>
-          <p>Multiples metodo de pago que te facilitaran la compra</p>
-        </StyledCardDiv>
-        <StyledCardDiv>
-          <img src={iconMapa} alt="" />
-          <h3>Tiendas Fisicas</h3>
-          <p>Puedes ir a la tienda fisica del vendedor</p>
-        </StyledCardDiv>
+        <StyledDescription>
+          Con TI Shopping, puedes alcanzar a un público más amplio al ofrecer
+          productos de calidad a través de una tienda en línea disponible las 24
+          horas del día, los 7 días de la semana.
+        </StyledDescription>
 
-        <StyledCardDiv>
-          <img src={iconCarro} alt="" />
-          <h3>Envio</h3>
-          <p>TI_Shopping lleva tu producto a la puerta de tu casa</p>
-        </StyledCardDiv>
-      </StyledCardContenDiv>
+        <StyledImageHeader src={imageHeader} alt="" />
+      </StyledHeader>
 
-      <StyledTitleH2>Main Features</StyledTitleH2>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#151616"
+          fill-opacity="1"
+          d="M0,64L48,90.7C96,117,192,171,288,208C384,245,480,267,576,272C672,277,768,267,864,245.3C960,224,1056,192,1152,197.3C1248,203,1344,245,1392,266.7L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+        ></path>
+      </svg>
 
-      <StyledFeatureDiv>
-        <StyledFeatureCardDiv>
-          <div>
-            <h2>easy managment</h2>
-            <StyledFeatureP>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reiciendis error doloribus tempora? Magni blanditiis magnam earum
-              voluptates? Tempore, asperiores, molestias delectus esse autem
-              odio eaque alias dolore dolorem excepturi magnam.
-            </StyledFeatureP>
-          </div>
-          <img src={backImg} alt="" />
-        </StyledFeatureCardDiv>
+      {/* Products */}
+      <StyledContainerSectionProducts>
+        <StyledCategorias>
+          <h3>Nuestras categorias</h3>
 
-        <StyledFeatureCardDiv>
-          <img src={backImg} alt="" />
-          <div>
-            <h2>Fast Action</h2>
-            <StyledFeatureP>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reiciendis error doloribus tempora? Magni blanditiis magnam earum
-              voluptates? Tempore, asperiores, molestias delectus esse autem
-              odio eaque alias dolore dolorem excepturi magnam.
-            </StyledFeatureP>
-          </div>
-        </StyledFeatureCardDiv>
+          <StyledContainerCategories>
+            {categories.map((category) => (
+              <StyledPillCategory key={category.Id_categories}>
+                {category.name_categoria}
+              </StyledPillCategory>
+            ))}
+          </StyledContainerCategories>
+        </StyledCategorias>
 
-        <StyledFeatureCardDiv>
-          <div>
-            <h2>High Security</h2>
-            <StyledFeatureP>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reiciendis error doloribus tempora? Magni blanditiis magnam earum
-              voluptates? Tempore, asperiores, molestias delectus esse autem
-              odio eaque alias dolore dolorem excepturi magnam.
-            </StyledFeatureP>
-          </div>
-          <img src={backImg} alt="" />
-        </StyledFeatureCardDiv>
-      </StyledFeatureDiv>
-
-      <div>
-        <StyledTitleH1>Download</StyledTitleH1>
-        <StyledBotton>
-          <Button text="Windows" type="submit" />
-          <Button text="Mac" type="submit" />
-          <Button text="Android" type="submit" />
-        </StyledBotton>
-      </div>
-
-      <div>
-        <StyledFeatureCardDiv>
-          <div>
-            <h2>
-              Por qué el propietario de una pequeña empresa les gusta TI
-              Shopping
-            </h2>
-            <StyledFeatureP>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reiciendis error doloribus tempora? Magni blanditiis magnam earum
-              voluptates? Tempore, asperiores, molestias delectus esse autem
-              odio eaque alias dolore dolorem excepturi magnam.
-            </StyledFeatureP>
-          </div>
-        </StyledFeatureCardDiv>
-      </div>
-    </StyledMain>
+        <StyledGridProducts>
+          {products.map((product) => (
+            <CardProduct
+              name={product.Name_product}
+              id={product.Id_product.toString()}
+              image={product.image.split(",")[0]}
+              key={product.Id_product.toString()}
+              urlSee={`/productos/${product.Id_product.toString()}`}
+              action={(id) => console.log(id)}
+            />
+          ))}
+        </StyledGridProducts>
+      </StyledContainerSectionProducts>
+    </StyledContainer>
   );
 };
 

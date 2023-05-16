@@ -7,6 +7,7 @@ import Toast from "./Toast";
 import Modal from "./modal";
 import TextArea from "./TextArea";
 import Select from "./Select";
+import CardProduct from "./CardProduct";
 
 const useComponents = () => {
   return {
@@ -19,6 +20,7 @@ const useComponents = () => {
     Modal,
     TextArea,
     Select,
+    CardProduct,
   };
 };
 
