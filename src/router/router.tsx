@@ -64,7 +64,7 @@ const useRouter = () => {
         }
       />
       <Route
-        path="/product/:id"
+        path="/productos/:id"
         element={
           <MainLayout>
             <ProductDetail />

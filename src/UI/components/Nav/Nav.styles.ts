@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 
+import { Link } from "react-router-dom";
+
 const StyledNav = styled.nav`
   ${tw`bg-transparent `}
 `;
 const Styledlogo = styled.img`
   ${tw`w-24 h-12 cursor-pointer lg:h-24 lg:w-48`}
 `;
-const StyledLink = styled.a<{ hidden?: boolean }>`
-  ${tw`m-10 text-black no-underline cursor-pointer `}
+const StyledLink = styled(Link)<{ hidden?: boolean }>`
+  ${tw`mx-0 my-10 text-black no-underline cursor-pointer lg:m-10 hover:underline hover:font-semibold`}
   ${({ hidden }) => hidden && tw`hidden lg:block`}
 `;
 const StyledCol = styled.ul`
-  ${tw`flex flex-col justify-center list-none lg:flex-row `}
+  ${tw`flex flex-col justify-center list-none px-7 lg:flex-row `}
 `;
 const StyledCollis = styled.li`
   ${tw`inline-block cursor-pointer`}
@@ -24,19 +26,18 @@ const StyledHeader = styled.header`
   ${tw`box-border flex items-center justify-between px-7`}
 `;
 const StyledActionHeader = styled.div`
-  ${tw`flex items-center gap-4 `}
+  ${tw`items-center hidden gap-4 lg:flex`}
 `;
 const StyledCar = styled.img`
   ${tw`cursor-pointer `}
 `;
 
 const StyledModal = styled.article`
-  ${tw`absolute left-0 right-0 z-40 duration-75 
-  ease-in-out bg-primary box-border py-3.5 top-24 `}
+  ${tw`absolute left-0 shadow-2xl right-0 z-40 duration-75 ease-in-out bg-white box-border py-3.5 top-[53px]`}
 `;
 
 const StyledIconMenu = styled.img`
-  ${tw`cursor-pointer lg:hidden`}
+  ${tw`w-6 h-6 cursor-pointer lg:hidden`}
 `;
 
 const useNavStyles = () => {

@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Link } from "react-router-dom";
 
 const StyledMain = styled.main`
   ${tw`box-border flex flex-col w-full lg:flex-row`}
 `;
 
 const StyleLeftSection = styled.section`
-  ${tw`box-border flex flex-col justify-center h-screen p-5 bg-black lg:w-2/6`}
+  ${tw`box-border flex flex-col justify-center h-screen p-5 lg:py-5 lg:px-12 bg-[#000] lg:w-2/6`}
 `;
 
 const StyleRigthtSection = styled.div`
@@ -32,6 +31,10 @@ const StyleForm = styled.form`
 
 const StyleRow = styled.div`
   ${tw`w-full mb-8`}
+
+  & button {
+    ${tw`bg-[#00a6c6]`}
+  }
 `;
 
 const StyledlinkLogin = styled.span`

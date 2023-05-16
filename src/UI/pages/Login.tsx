@@ -46,14 +46,14 @@ const Login = () => {
       <StyleLeftSection>
         {isLogin ? (
           <>
-            <StyleTitle>Sign In</StyleTitle>
+            <StyleTitle>Ingresar</StyleTitle>
             <StyleForm onSubmit={handleSubmit(onSubmit)}>
               <StyleRow>
                 <Input
                   id="emailUser"
                   type={"email"}
-                  placeholder="Escriba su usuario"
-                  textLabel="Nombre de usuario"
+                  placeholder="Escribe tu correo"
+                  textLabel="Correo"
                   register={register}
                   required
                 />
