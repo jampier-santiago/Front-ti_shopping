@@ -26,15 +26,21 @@ const StyleTittle = styled.h1`
 `;
 
 const StyleSubTittle = styled.h2`
-  ${tw` text-black   flex justify-center 
+  ${tw` text-black   flex 
 
   `}
 `;
 const StyleLeftSection = styled.section`
-  ${tw`lg:w-4/6  bg-blue-100 box-border  p-10   `}
+  ${tw`lg:w-4/6 box-border  p-10   `}
 `;
 const StyleRigthtSection = styled.div`
-  ${tw`w-80 h-80  `}
+  & img {
+    ${tw`w-80 h-80  `}
+  }
+`;
+
+const StyledIcon = styled.div`
+  ${tw`flex items-center  space-x-4 bg-red-500`}
 `;
 const useShopDetailStyes = () => {
   return {
@@ -47,6 +53,7 @@ const useShopDetailStyes = () => {
     StyleSubTittle,
     StyleLeftSection,
     StyleRigthtSection,
+    StyledIcon,
   };
 };
 

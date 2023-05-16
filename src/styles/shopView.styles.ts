@@ -18,7 +18,7 @@ const StyleSquareShop = styled.div`
 `;
 
 const StyleSectionShop = styled.section`
-  ${tw`grid grid-cols-3 mx-auto max-w-screen-lg `}
+  ${tw`grid grid-cols-3 mx-auto max-w-screen-lg  mt-[12] `}
 `;
 
 const StyleTittle = styled.h1`
