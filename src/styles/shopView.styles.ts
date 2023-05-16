@@ -10,19 +10,19 @@ const StyleMain = styled.header`
 `;
 
 const StyleDecorationHero = styled.div`
-  ${tw`absolute left-0 bg-black top-0 bottom-0 right-0 `}
+  ${tw`absolute top-0 bottom-0 left-0 right-0 bg-black `}
 `;
 
 const StyleSquareShop = styled.div`
-  ${tw`w-80 h-80  rounded-xl bg-center bg-cover cursor-pointer `}
+  ${tw`bg-center bg-cover cursor-pointer w-80 h-80 rounded-xl `}
 `;
 
 const StyleSectionShop = styled.section`
-  ${tw`grid grid-cols-3 mx-auto max-w-screen-lg  mt-[12] `}
+  ${tw`grid max-w-screen-lg grid-cols-3 mx-auto mt-12 `}
 `;
 
 const StyleTittle = styled.h1`
-  ${tw`text-while z-10 text-8xl mix-blend-difference`}
+  ${tw`z-10 text-while text-8xl mix-blend-difference`}
 `;
 
 const StyleSubTittle = styled.h2`
