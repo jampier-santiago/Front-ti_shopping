@@ -82,7 +82,7 @@ const ProductDetail: FC = () => {
           )}
         </StyledSectionImages>
 
-        <Suspense>
+        <Suspense fallback={<div>Cargando</div>}>
           <Canvas style={{ height: "600px", width: "600px", margin: "auto" }}>
             <color attach="background" args={["#F8F7F7"]} />
             <ambientLight />
@@ -93,7 +93,7 @@ const ProductDetail: FC = () => {
               angle={70}
             />
 
-            <Suspense fallback={null}>
+            <Suspense fallback={<div>Cargando</div>}>
               <primitive
                 scale={20}
                 position={[25, -50, 0]}

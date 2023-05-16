@@ -11,11 +11,16 @@ import imageHeader from "assets/img/boy-with-vr.png";
 
 const Home = () => {
   // Components
-  const { CardProduct } = useComponents();
+  const { CardProduct, Toast } = useComponents();
 
   // Controllers
-  const { categories, products, addProductToShoppingCar } =
-    useHomeApplication();
+  const {
+    categories,
+    products,
+    addProductToShoppingCar,
+    setShowToast,
+    showToast,
+  } = useHomeApplication();
 
   // Styles
   const { useHomeStyles } = useStyles();
@@ -34,6 +39,16 @@ const Home = () => {
 
   return (
     <StyledContainer>
+      {showToast && (
+        <Toast
+          timeHidden={2000}
+          variant="success"
+          close={() => setShowToast(false)}
+        >
+          Elemento insertado con exito
+        </Toast>
+      )}
+
       {/* Header */}
       <StyledHeader>
         <StyledTitle>

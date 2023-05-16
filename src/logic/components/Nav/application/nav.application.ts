@@ -20,8 +20,10 @@ const useNavApplication = () => {
   const { products } = useSelector((state: RootState) => state.shoppingCart);
 
   // Actions
-  const { addProductToShoppingCar: addProductToShoppingCarAction } =
-    useActionsShoppingCart();
+  const {
+    addProductToShoppingCar: addProductToShoppingCarAction,
+    removeProduct,
+  } = useActionsShoppingCart();
 
   //State
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -44,6 +46,13 @@ const useNavApplication = () => {
     addProductToShoppingCarAction(product, idStore);
   };
 
+  const removeProductOfShoppingCar = (
+    product: ProductResponse,
+    idStore: string
+  ) => {
+    removeProduct(product, idStore);
+  };
+
   useEffect(() => {
     setInfoProductss(products);
   }, [products]);
@@ -55,6 +64,7 @@ const useNavApplication = () => {
     handleModalShopping,
     infoProducts,
     addProductToShoppingCar,
+    removeProductOfShoppingCar,
   };
 };
 export default useNavApplication;

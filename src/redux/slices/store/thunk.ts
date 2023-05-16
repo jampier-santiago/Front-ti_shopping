@@ -52,14 +52,16 @@ export const useActionsShoppingCart = () => {
     );
 
     if (existProduct) {
-      const index = temporaryData[idStore].indexOf(existProduct);
-      const temporaryStore = [...temporaryData[idStore]];
-      temporaryStore[index] = {
-        ...existProduct,
-        amount: existProduct.amount + 1,
-      };
+      if (existProduct.amount - 1 > 1) {
+        const index = temporaryData[idStore].indexOf(existProduct);
+        const temporaryStore = [...temporaryData[idStore]];
+        temporaryStore[index] = {
+          ...existProduct,
+          amount: existProduct.amount - 1,
+        };
 
-      temporaryData[idStore] = [...temporaryStore];
+        temporaryData[idStore] = [...temporaryStore];
+      }
     }
   };
 

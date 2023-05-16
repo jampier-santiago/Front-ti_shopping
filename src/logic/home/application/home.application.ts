@@ -19,6 +19,7 @@ const useHomeApplication = () => {
   // State
   const [categories, setCategories] = useState<Array<CategoryResponse>>([]);
   const [products, setProducts] = useState<Array<ProductResponse>>([]);
+  const [showToast, setShowToast] = useState<boolean>(false);
 
   // Function
   const getAllCategories = () => {
@@ -43,6 +44,7 @@ const useHomeApplication = () => {
     idStore: string,
     product: ProductResponse
   ) => {
+    setShowToast(true);
     addProductToShoppingCarAction(product, idStore);
   };
 
@@ -52,7 +54,13 @@ const useHomeApplication = () => {
     getAllProducst();
   }, []);
 
-  return { categories, products, addProductToShoppingCar };
+  return {
+    categories,
+    products,
+    addProductToShoppingCar,
+    showToast,
+    setShowToast,
+  };
 };
 
 export default useHomeApplication;
