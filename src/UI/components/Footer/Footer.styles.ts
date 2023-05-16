@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import { Link } from "react-router-dom"; //etiqueta a html
 
 const Styledlogo = styled.img`
-  ${tw`w-56 h-24`}
+  ${tw`w-56`}
 `;
 
 const StyledContainerLogo = styled.div`

@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
   ${tw`bg-transparent `}
 `;
 const Styledlogo = styled.img`
-  ${tw`w-24 h-12 cursor-pointer lg:h-24 lg:w-48`}
+  ${tw`h-12 cursor-pointer lg:h-16`}
 `;
 const StyledLink = styled(Link)<{ hidden?: boolean }>`
   ${tw`mx-0 my-10 text-black no-underline cursor-pointer lg:m-10 hover:underline hover:font-semibold`}

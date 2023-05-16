@@ -42,7 +42,7 @@ const StyledPillCategory = styled.span`
 `;
 
 const StyledGridProducts = styled.article`
-  ${tw`box-border grid w-full grid-cols-1 gap-4 px-5 mt-4`}
+  ${tw`box-border grid w-full grid-cols-1 gap-4 px-5 mt-4 lg:grid-cols-5`}
 `;
 
 const useHomeStyles = () => {

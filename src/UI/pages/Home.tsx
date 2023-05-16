@@ -11,7 +11,7 @@ import imageHeader from "assets/img/boy-with-vr.png";
 
 const Home = () => {
   // Components
-  const { Button, CardProduct } = useComponents();
+  const { CardProduct } = useComponents();
 
   // Controllers
   const { categories, products } = useHomeApplication();

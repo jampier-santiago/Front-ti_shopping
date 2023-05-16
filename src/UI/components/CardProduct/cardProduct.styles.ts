@@ -5,7 +5,7 @@ const StyledCardProduct = styled.div`
   ${tw`box-border shadow-xl rounded-2xl px-2 py-2.5`}
 
   & img {
-    ${tw`w-[65vw] h-[65vw] mx-auto block`}
+    ${tw`w-[65vw] h-[65vw] lg:w-full lg:max-h-[30vh] mx-auto block`}
   }
 
   & h3 {
