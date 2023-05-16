@@ -2,33 +2,32 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledNav = styled.nav`
-  ${tw` bg-transparent`}
+  ${tw`bg-transparent `}
 `;
 const Styledlogo = styled.img`
-  ${tw`lg:h-24  lg:w-48 
-          h-12 w-24 cursor-pointer`}
+  ${tw`w-24 h-12 cursor-pointer lg:h-24 lg:w-48`}
 `;
 const StyledLink = styled.a<{ hidden?: boolean }>`
-  ${tw` no-underline text-white m-10 text-black cursor-pointer`}
-  ${({ hidden }) => hidden && tw` hidden lg:block`}
+  ${tw`m-10 text-black no-underline cursor-pointer `}
+  ${({ hidden }) => hidden && tw`hidden lg:block`}
 `;
 const StyledCol = styled.ul`
-  ${tw`flex flex-col lg:flex-row justify-center list-none `}
+  ${tw`flex flex-col justify-center list-none lg:flex-row `}
 `;
 const StyledCollis = styled.li`
   ${tw`inline-block cursor-pointer`}
 `;
 const Styledhr = styled.hr`
-  ${tw` bg-black`}
+  ${tw`bg-black `}
 `;
 const StyledHeader = styled.header`
-  ${tw` flex justify-between items-center px-7 box-border `}
+  ${tw`box-border flex items-center justify-between px-7`}
 `;
 const StyledActionHeader = styled.div`
-  ${tw` flex gap-4 items-center `}
+  ${tw`flex items-center gap-4 `}
 `;
 const StyledCar = styled.img`
-  ${tw` cursor-pointer`}
+  ${tw`cursor-pointer `}
 `;
 
 const StyledModal = styled.article`
@@ -37,7 +36,7 @@ const StyledModal = styled.article`
 `;
 
 const StyledIconMenu = styled.img`
-  ${tw` cursor-pointer lg:hidden`}
+  ${tw`cursor-pointer lg:hidden`}
 `;
 
 const useNavStyles = () => {

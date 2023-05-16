@@ -1,9 +1,22 @@
+// Packages
+import { FC, Suspense } from "react";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "@react-three/drei";
+
+// Components
 import useViews from "..";
+
+// Styles
 import useStyles from "styles";
-import { FC } from "react";
+
+// Logic
 import useProducDetailApplication from "logic/producDetail/application/productDetail.application";
+
+// Assets
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import model from "assets/models/mac.gltf";
 
 const ProductDetail: FC = () => {
   //components
@@ -25,20 +38,30 @@ const ProductDetail: FC = () => {
     StyleParagraph,
     StyleButton,
     StyledButtonNext,
+    StyledBody,
+    StyledSectionImages,
   } = useProductDetail();
+
+  const loaderModel = useLoader(GLTFLoader, model);
+
   return (
-    <main>
-      <StyleMain>
-        <article>
+    <StyleMain>
+      <StyledBody>
+        <StyledSectionImages>
           <StyledContainerSlider>
             {views.map((element) => (
-              <StyledViewSlider key={element} className="styled-view-slider">
+              <StyledViewSlider
+                key={element}
+                className="styled-view-slider"
+                style={{ backgroundImage: `url("${product?.image}")` }}
+              >
                 <span>{element}</span>
-                <img src={product?.image} alt="" />
+                {/* <img src={p} alt="" /> */}
               </StyledViewSlider>
             ))}
           </StyledContainerSlider>
-          {currentPositionSlider != 0 && (
+
+          {currentPositionSlider !== 0 && (
             <StyledButtonNext
               onClick={() =>
                 handleCurrentPositionSlider(currentPositionSlider - 1)
@@ -57,7 +80,32 @@ const ProductDetail: FC = () => {
               siguiente
             </StyledButtonNext>
           )}
-        </article>
+        </StyledSectionImages>
+
+        <Canvas style={{ height: "600px", width: "600px", margin: "auto" }}>
+          <color attach="background" args={["#F8F7F7"]} />
+          <ambientLight />
+          <spotLight
+            position={[0, 70, 70]}
+            color="#fff"
+            intensity={4}
+            angle={70}
+          />
+
+          <Suspense fallback={null}>
+            <primitive
+              scale={20}
+              position={[25, -50, 0]}
+              object={(loaderModel as any).scene}
+            />
+          </Suspense>
+          <OrbitControls
+            autoRotate
+            minDistance={70}
+            maxDistance={110}
+            maxPolarAngle={Math.PI / 2}
+          />
+        </Canvas>
 
         <StyleArticle>
           <Styletitle>{product?.Name_product}</Styletitle>
@@ -76,11 +124,12 @@ const ProductDetail: FC = () => {
 
           <StyleButton>COMPRAR</StyleButton>
         </StyleArticle>
-      </StyleMain>
+      </StyledBody>
+
       <section>
         <h2>Aquí va la descripción larga del producto (carateristicas)</h2>
       </section>
-    </main>
+    </StyleMain>
   );
 };
 
