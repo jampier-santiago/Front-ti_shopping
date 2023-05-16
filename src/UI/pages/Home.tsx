@@ -58,7 +58,7 @@ const Home = () => {
       </svg>
 
       {/* Products */}
-      <StyledContainerSectionProducts>
+      <StyledContainerSectionProducts id="productos">
         <StyledCategorias>
           <h3>Nuestras categorias</h3>
 

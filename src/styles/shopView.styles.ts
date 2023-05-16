@@ -18,7 +18,7 @@ const StyleSquareShop = styled.div`
 `;
 
 const StyleSectionShop = styled.section`
-  ${tw`grid max-w-screen-lg grid-cols-3 mx-auto mt-12 `}
+  ${tw`grid max-w-screen-lg grid-cols-3 mx-auto my-12 `}
 `;
 
 const StyleTittle = styled.h1`
@@ -28,10 +28,6 @@ const StyleTittle = styled.h1`
 const StyleSubTittle = styled.h2`
   ${tw` text-while z-10 max-w-[60%] text-center mix-blend-difference`}
 `;
-
-// const StyleRigthtSection = styled.section`
-//   ${tw`bg-center bg-cover`}
-// `;
 
 const useShopViewStyles = () => {
   return {

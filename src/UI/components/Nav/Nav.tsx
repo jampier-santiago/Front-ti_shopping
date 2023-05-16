@@ -37,7 +37,7 @@ const Nav = () => {
             </StyledLink>
           </StyledCollis>
           <StyledCollis>
-            <StyledLink onClick={handleModal} to="#">
+            <StyledLink onClick={handleModal} to="/#productos">
               Productos
             </StyledLink>
           </StyledCollis>
@@ -67,7 +67,7 @@ const Nav = () => {
         <StyledActionHeader>
           <StyledLink to="/shop">Shop</StyledLink>
 
-          <StyledLink to="#">Productos</StyledLink>
+          <StyledLink to="/#productos">Productos</StyledLink>
 
           <StyledLink to="/admin">Admin</StyledLink>
 

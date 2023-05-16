@@ -81,30 +81,32 @@ const ProductDetail: FC = () => {
           )}
         </StyledSectionImages>
 
-        <Canvas style={{ height: "600px", width: "600px", margin: "auto" }}>
-          <color attach="background" args={["#F8F7F7"]} />
-          <ambientLight />
-          <spotLight
-            position={[0, 70, 70]}
-            color="#fff"
-            intensity={4}
-            angle={70}
-          />
-
-          <Suspense fallback={null}>
-            <primitive
-              scale={20}
-              position={[25, -50, 0]}
-              object={(loaderModel as any).scene}
+        <Suspense>
+          <Canvas style={{ height: "600px", width: "600px", margin: "auto" }}>
+            <color attach="background" args={["#F8F7F7"]} />
+            <ambientLight />
+            <spotLight
+              position={[0, 70, 70]}
+              color="#fff"
+              intensity={4}
+              angle={70}
             />
-          </Suspense>
-          <OrbitControls
-            autoRotate
-            minDistance={70}
-            maxDistance={110}
-            maxPolarAngle={Math.PI / 2}
-          />
-        </Canvas>
+
+            <Suspense fallback={null}>
+              <primitive
+                scale={20}
+                position={[25, -50, 0]}
+                object={(loaderModel as any).scene}
+              />
+            </Suspense>
+            <OrbitControls
+              autoRotate
+              minDistance={70}
+              maxDistance={110}
+              maxPolarAngle={Math.PI / 2}
+            />
+          </Canvas>
+        </Suspense>
 
         <StyleArticle>
           <Styletitle>{product?.Name_product}</Styletitle>
