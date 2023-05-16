@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import { Link } from "react-router-dom";
 
 const StyledNav = styled.nav`
-  ${tw`bg-transparent `}
+  ${tw`z-10 bg-transparent`}
 `;
 const Styledlogo = styled.img`
   ${tw`h-12 cursor-pointer lg:h-16`}
@@ -40,6 +40,14 @@ const StyledIconMenu = styled.img`
   ${tw`w-6 h-6 cursor-pointer lg:hidden`}
 `;
 
+const StyledModalShoppingCart = styled.article`
+  ${tw`w-3/5 bg-white h-3/5 z-[101]`}
+
+  & h3 {
+    ${tw`text-2xl font-medium text-center`}
+  }
+`;
+
 const useNavStyles = () => {
   return {
     Styledlogo,
@@ -53,6 +61,7 @@ const useNavStyles = () => {
     StyledCar,
     StyledModal,
     StyledIconMenu,
+    StyledModalShoppingCart,
   };
 };
 

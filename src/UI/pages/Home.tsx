@@ -76,7 +76,7 @@ const Home = () => {
             <CardProduct
               name={product.Name_product}
               id={product.Id_product.toString()}
-              image={product.image.split(",")[0]}
+              image={product.image?.split(",")[0]}
               key={product.Id_product.toString()}
               urlSee={`/productos/${product.Id_product.toString()}`}
               action={(id) => console.log(id)}
