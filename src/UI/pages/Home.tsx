@@ -14,7 +14,8 @@ const Home = () => {
   const { CardProduct } = useComponents();
 
   // Controllers
-  const { categories, products } = useHomeApplication();
+  const { categories, products, addProductToShoppingCar } =
+    useHomeApplication();
 
   // Styles
   const { useHomeStyles } = useStyles();
@@ -79,7 +80,9 @@ const Home = () => {
               image={product.image?.split(",")[0]}
               key={product.Id_product.toString()}
               urlSee={`/productos/${product.Id_product.toString()}`}
-              action={(id) => console.log(id)}
+              action={(id) =>
+                addProductToShoppingCar(product.id_store || id, product)
+              }
             />
           ))}
         </StyledGridProducts>

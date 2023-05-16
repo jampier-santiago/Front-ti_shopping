@@ -1,19 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ResponseProductDetail } from "../../../logic/producDetail/data/productDetail.models";
 
-export const shoppingCartSlice = createSlice({
+interface Product extends ResponseProductDetail {
+  amount: number;
+}
+
+interface GroupStore {
+  [x: string]: Array<Product>;
+}
+
+export const shoppingCartSlice = createSlice<
+  {
+    totalProducts: number;
+    products: GroupStore;
+  },
+  {
+    addNewProduct: (state: any, action: { type: string; payload: any }) => void;
+    removeProduct: (state: any, action: { type: string; payload: any }) => void;
+    resetShoppingCart: (
+      state: any,
+      action: { type: string; payload: any }
+    ) => void;
+  }
+>({
   name: "shoppingCart",
-  initialState: { totalProducts: 0, products: [] },
+  initialState: { totalProducts: 0, products: {} },
   reducers: {
-    addNewProduct: (state, action) => {
+    addNewProduct: (
+      state: {
+        totalProducts: number;
+        products: GroupStore;
+      },
+      action
+    ) => {
       state.totalProducts += 1;
-      (state.products as any[]).push(action.payload);
+      state.products = action.payload;
     },
     removeProduct: (state, action) => {
       state.totalProducts -= 1;
-      (state.products as any[]).push(action.payload);
+      // (state.products as any[]).push(action.payload);
     },
     resetShoppingCart: (state) => {
-      state.products = [];
+      // state.products = {};
       state.totalProducts = 0;
     },
   },
