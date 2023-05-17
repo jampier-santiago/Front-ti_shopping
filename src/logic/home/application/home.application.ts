@@ -4,14 +4,22 @@ import { useState, useEffect } from "react";
 // Endpoint
 import endpoint from "logic/api/api.adapter";
 
+// Actions
+import { useActionsShoppingCart } from "../../../redux/slices/store/thunk";
+
 // Interfaces
 import { CategoryResponse } from "../data/category.data";
 import { ProductResponse } from "../data/product.data";
 
 const useHomeApplication = () => {
+  // Actions
+  const { addProductToShoppingCar: addProductToShoppingCarAction } =
+    useActionsShoppingCart();
+
   // State
   const [categories, setCategories] = useState<Array<CategoryResponse>>([]);
   const [products, setProducts] = useState<Array<ProductResponse>>([]);
+  const [showToast, setShowToast] = useState<boolean>(false);
 
   // Function
   const getAllCategories = () => {
@@ -25,11 +33,19 @@ const useHomeApplication = () => {
 
   const getAllProducst = () => {
     endpoint()
-      .get({ url: `products/store/1` })
+      .get({ url: `products/` })
       .then((result) =>
         setProducts(result as unknown as Array<ProductResponse>)
       )
       .catch((error) => console.log(error));
+  };
+
+  const addProductToShoppingCar = (
+    idStore: string,
+    product: ProductResponse
+  ) => {
+    setShowToast(true);
+    addProductToShoppingCarAction(product, idStore);
   };
 
   // Effects
@@ -38,7 +54,13 @@ const useHomeApplication = () => {
     getAllProducst();
   }, []);
 
-  return { categories, products };
+  return {
+    categories,
+    products,
+    addProductToShoppingCar,
+    showToast,
+    setShowToast,
+  };
 };
 
 export default useHomeApplication;

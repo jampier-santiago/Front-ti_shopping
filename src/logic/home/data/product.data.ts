@@ -4,4 +4,5 @@ export interface ProductResponse {
   Description_product: string;
   Price: string | number;
   image: string;
+  id_store?: string;
 }

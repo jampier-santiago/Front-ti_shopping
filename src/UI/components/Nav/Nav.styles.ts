@@ -41,10 +41,38 @@ const StyledIconMenu = styled.img`
 `;
 
 const StyledModalShoppingCart = styled.article`
-  ${tw`w-3/5 bg-white h-3/5 z-[101]`}
+  ${tw`w-2/5 bg-white h-3/5 max-h-[500px] overflow-y-auto z-[101] rounded-2xl shadow-2xl`}
 
   & h3 {
     ${tw`text-2xl font-medium text-center`}
+  }
+`;
+
+const StyledContainerProducts = styled.div`
+  ${tw`box-border w-full px-8 mt-5`}
+`;
+
+const StyledRow = styled.div`
+  ${tw`box-border flex items-center justify-between w-full px-2 py-3 mb-4 border-t-0 border-b-2 border-l-0 border-r-0 border-solid border-b-primary-200`}
+
+  & h4 {
+    ${tw`text-lg font-semibold mb-1.5`}
+  }
+
+  $ span {
+    ${tw`text-sm font-medium`}
+  }
+`;
+
+const StyledContainerButton = styled.div`
+  ${tw`max-w-[200px] mx-auto box-border pb-3.5 mt-16`}
+`;
+
+const StyledControlsRow = styled.div`
+  ${tw`flex items-center gap-3`}
+
+  & button {
+    ${tw`cursor-pointer`}
   }
 `;
 
@@ -62,6 +90,10 @@ const useNavStyles = () => {
     StyledModal,
     StyledIconMenu,
     StyledModalShoppingCart,
+    StyledContainerProducts,
+    StyledRow,
+    StyledContainerButton,
+    StyledControlsRow,
   };
 };
 

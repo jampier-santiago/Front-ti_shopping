@@ -4,6 +4,7 @@ import useNavApplication from "logic/components/Nav/application/nav.application"
 // Components
 import { Link } from "react-router-dom";
 import Modal from "../modal";
+import useComponents from "..";
 
 //ASSETS
 import logo from "assets/img/Logo_TI_Shopping.png";
@@ -12,6 +13,9 @@ import iconMenu from "assets/icons/menu-dark.svg";
 import iconClose from "assets/icons/close.svg";
 
 const Nav = () => {
+  // Components
+  const { Button } = useComponents();
+
   const {
     Styledlogo,
     StyledLink,
@@ -24,11 +28,22 @@ const Nav = () => {
     StyledCar,
     StyledIconMenu,
     StyledModalShoppingCart,
+    StyledContainerProducts,
+    StyledRow,
+    StyledContainerButton,
+    StyledControlsRow,
   } = useNavStyles();
 
   //Logic
-  const { handleModal, showModal, handleModalShopping, showModalShopping } =
-    useNavApplication();
+  const {
+    handleModal,
+    showModal,
+    handleModalShopping,
+    showModalShopping,
+    infoProducts,
+    addProductToShoppingCar,
+    removeProductOfShoppingCar,
+  } = useNavApplication();
 
   return (
     <>
@@ -36,6 +51,50 @@ const Nav = () => {
         <Modal onClose={handleModalShopping}>
           <StyledModalShoppingCart>
             <h3>Carrito de compras</h3>
+
+            <StyledContainerProducts>
+              {Object.values(infoProducts).map((product, index) => (
+                <div key={Object.keys(infoProducts)[index]}>
+                  {product.map((prod) => (
+                    <StyledRow key={prod.Id_product}>
+                      <div>
+                        <h4>{prod.Name_product}</h4>
+
+                        <span>$ {prod.Price}</span>
+                      </div>
+
+                      <StyledControlsRow>
+                        <button
+                          onClick={() =>
+                            addProductToShoppingCar(
+                              Object.keys(infoProducts)[index],
+                              prod
+                            )
+                          }
+                        >
+                          +
+                        </button>
+                        <span>Cantidad: {prod.amount}</span>
+                        <button
+                          onClick={() =>
+                            removeProductOfShoppingCar(
+                              prod,
+                              Object.keys(infoProducts)[index]
+                            )
+                          }
+                        >
+                          -
+                        </button>
+                      </StyledControlsRow>
+                    </StyledRow>
+                  ))}
+                </div>
+              ))}
+            </StyledContainerProducts>
+
+            <StyledContainerButton>
+              <Button text="Terminar compra" />
+            </StyledContainerButton>
           </StyledModalShoppingCart>
         </Modal>
       )}
