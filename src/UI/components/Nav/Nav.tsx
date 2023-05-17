@@ -42,6 +42,7 @@ const Nav = () => {
     showModalShopping,
     infoProducts,
     addProductToShoppingCar,
+    removeProductOfShoppingCar,
   } = useNavApplication();
 
   return (
@@ -74,7 +75,16 @@ const Nav = () => {
                           +
                         </button>
                         <span>Cantidad: {prod.amount}</span>
-                        <button>-</button>
+                        <button
+                          onClick={() =>
+                            removeProductOfShoppingCar(
+                              prod,
+                              Object.keys(infoProducts)[index]
+                            )
+                          }
+                        >
+                          -
+                        </button>
                       </StyledControlsRow>
                     </StyledRow>
                   ))}

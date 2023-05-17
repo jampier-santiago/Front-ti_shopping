@@ -22,7 +22,7 @@ const useNavApplication = () => {
   // Actions
   const {
     addProductToShoppingCar: addProductToShoppingCarAction,
-    removeProduct,
+    removeProductInShoppingCar,
   } = useActionsShoppingCart();
 
   //State
@@ -50,7 +50,7 @@ const useNavApplication = () => {
     product: ProductResponse,
     idStore: string
   ) => {
-    removeProduct(product, idStore);
+    removeProductInShoppingCar(product, idStore);
   };
 
   useEffect(() => {

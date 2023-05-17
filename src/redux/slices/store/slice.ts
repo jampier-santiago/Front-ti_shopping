@@ -38,7 +38,7 @@ export const shoppingCartSlice = createSlice<
     },
     removeProduct: (state, action) => {
       state.totalProducts -= 1;
-      // (state.products as any[]).push(action.payload);
+      state.products = action.payload;
     },
     resetShoppingCart: (state) => {
       // state.products = {};

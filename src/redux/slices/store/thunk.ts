@@ -44,7 +44,10 @@ export const useActionsShoppingCart = () => {
     dispatch(addNewProduct(temporaryData));
   };
 
-  const removeProduct = (product: ResponseProductDetail, idStore: string) => {
+  const removeProductInShoppingCar = (
+    product: ResponseProductDetail,
+    idStore: string
+  ) => {
     let temporaryData = Object.assign({}, products);
 
     const existProduct = temporaryData[idStore].find(
@@ -52,7 +55,7 @@ export const useActionsShoppingCart = () => {
     );
 
     if (existProduct) {
-      if (existProduct.amount - 1 > 1) {
+      if (existProduct.amount - 1 >= 1) {
         const index = temporaryData[idStore].indexOf(existProduct);
         const temporaryStore = [...temporaryData[idStore]];
         temporaryStore[index] = {
@@ -61,9 +64,24 @@ export const useActionsShoppingCart = () => {
         };
 
         temporaryData[idStore] = [...temporaryStore];
+      } else {
+        const index = temporaryData[idStore].indexOf(existProduct);
+        const temporaryStore = [...temporaryData[idStore]];
+        const data = [
+          ...temporaryStore.splice(0, index),
+          ...temporaryStore.splice(index + 1),
+        ];
+
+        if (temporaryStore.length > 0) {
+          temporaryData[idStore] = [...data];
+        } else {
+          temporaryData[idStore] = [];
+        }
       }
     }
+
+    dispatch(removeProduct(temporaryData));
   };
 
-  return { addProductToShoppingCar, removeProduct };
+  return { addProductToShoppingCar, removeProductInShoppingCar };
 };
