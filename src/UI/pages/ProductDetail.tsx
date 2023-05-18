@@ -54,10 +54,7 @@ const ProductDetail: FC = () => {
                 key={element}
                 className="styled-view-slider"
                 style={{ backgroundImage: `url("${product?.image}")` }}
-              >
-                <span>{element}</span>
-                {/* <img src={p} alt="" /> */}
-              </StyledViewSlider>
+              ></StyledViewSlider>
             ))}
           </StyledContainerSlider>
 

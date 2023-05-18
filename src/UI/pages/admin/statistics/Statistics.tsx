@@ -11,8 +11,12 @@ import {
   ArcElement,
   Tooltip,
   Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
 } from "chart.js";
-import { PolarArea } from "react-chartjs-2";
+import { PolarArea, Bar } from "react-chartjs-2";
 
 // Redux
 import { RootState } from "redux/store";
@@ -23,14 +27,23 @@ import useStaticsApplication from "logic/admin/statics/application/statics.appli
 const Statistics = () => {
   // Styles
   const { useStatisticsStyles } = useStyles();
-  const { StyledMain, StyledTitle, StyledSubtitle } = useStatisticsStyles();
+  const { StyledMain, StyledTitle, StyledSubtitle, StyledContainerBar } =
+    useStatisticsStyles();
 
-  const { data } = useStaticsApplication();
+  const { data, dataBar, options } = useStaticsApplication();
 
   // Redux
   const { id } = useSelector((state: RootState) => state.auth);
 
   ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
   return (
     <StyledMain>
@@ -43,6 +56,10 @@ const Statistics = () => {
 
       <div style={{ maxWidth: "600px", margin: "auto" }}>
         <PolarArea data={data} title="Productos mas vendidos" />
+
+        <StyledContainerBar>
+          <Bar data={dataBar} options={options} />
+        </StyledContainerBar>
       </div>
     </StyledMain>
   );
