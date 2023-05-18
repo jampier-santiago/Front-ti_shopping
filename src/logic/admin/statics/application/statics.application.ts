@@ -10,12 +10,16 @@ import endpoint from "logic/api/api.adapter";
 const useStaticsApplication = () => {
   const { token } = useSelector((state: RootState) => state.auth);
 
+  // States
+  const [sales, setSales] = useState<Array<number>>([]);
+  const [products, setProducts] = useState();
+
   const data: ChartData<"polarArea", number[], string> = {
-    labels: ["Mac", "Asus", "Huawei", "Samsung", "Alkosto"],
+    labels: Object.keys((products as any) || {}),
     datasets: [
       {
         label: "# of compras",
-        data: [2, 4, 12, 8, 7],
+        data: Object.values((products as any) || {}),
         backgroundColor: [
           "rgba(255, 99, 132, 0.5)",
           "rgba(54, 162, 235, 0.5)",
@@ -27,9 +31,6 @@ const useStaticsApplication = () => {
       },
     ],
   };
-
-  // States
-  const [sales, setSales] = useState<Array<number>>([]);
 
   const options = {
     responsive: true,
@@ -63,6 +64,15 @@ const useStaticsApplication = () => {
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
     ],
+  };
+
+  const getAllProductsForSale = () => {
+    endpoint()
+      .get({ url: `/sales/graph/1`, headers: { "x-token": token } })
+      .then((result) => {
+        setProducts(result as any);
+      })
+      .catch((error) => console.log(error));
   };
 
   const getSales = () => {
@@ -118,6 +128,7 @@ const useStaticsApplication = () => {
 
   useEffect(() => {
     getSales();
+    getAllProductsForSale();
   }, []);
 
   return { data, options, dataBar };
