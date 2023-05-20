@@ -41,7 +41,7 @@ export const shoppingCartSlice = createSlice<
       state.products = action.payload;
     },
     resetShoppingCart: (state) => {
-      // state.products = {};
+      state.products = {};
       state.totalProducts = 0;
     },
   },

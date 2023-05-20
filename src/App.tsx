@@ -6,16 +6,16 @@ import { Provider } from "react-redux";
 import useRouter from "./router/router";
 
 import { store } from "./redux/store";
-import useViews from "UI";
+import { Suspense } from "react";
 
 function App() {
   const Router = useRouter();
-  const { useComponents } = useViews();
-  //const { Footer } = useComponents();
 
   return (
     <Provider store={store}>
-      <BrowserRouter>{Router}</BrowserRouter>
+      <Suspense fallback={<div>lOADING</div>}>
+        <BrowserRouter>{Router}</BrowserRouter>
+      </Suspense>
     </Provider>
   );
 }

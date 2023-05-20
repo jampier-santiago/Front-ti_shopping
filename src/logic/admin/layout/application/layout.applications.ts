@@ -16,6 +16,7 @@ const useAdminLayout = () => {
     { path: "/admin/mi-negocio", restriction: false, text: "Mi negocio" },
     { path: "/admin/productos", restriction: false, text: "Mis productos" },
     { path: "/admin/mi-cuenta", restriction: false, text: "Mi cuenta" },
+    { path: "/", restriction: false, text: "Home" },
     { path: "/admin/usuarios", restriction: true, text: "Usuarios" },
     { path: "/admin/tiendas", restriction: true, text: "Tiendas" },
   ];
