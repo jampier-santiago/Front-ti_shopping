@@ -1,5 +1,5 @@
 // Packages
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 // Styles
 import useStyles from "styles";
@@ -19,7 +19,7 @@ import {
 import { PolarArea, Bar } from "react-chartjs-2";
 
 // Redux
-import { RootState } from "redux/store";
+// import { RootState } from "redux/store";
 
 // Controlelrs
 import useStaticsApplication from "logic/admin/statics/application/statics.application";
