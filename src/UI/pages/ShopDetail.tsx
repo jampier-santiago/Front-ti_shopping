@@ -33,7 +33,6 @@ const ShopDetail = () => {
     StyleRigthtSection,
     StyledIcon,
     StyleSectionShop,
-    StyleSquareShop,
   } = useShopDetailStyes();
 
   return (
