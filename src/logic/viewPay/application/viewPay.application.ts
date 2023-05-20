@@ -66,6 +66,15 @@ const useViewPayApplication = () => {
     navigate("/");
   };
 
+  const calculteTotal = (products: GroupStore) => {
+    let total = 0;
+    Object.values(products).forEach((product) =>
+      product.forEach((prod) => (total += parseInt(prod.Price.toString())))
+    );
+
+    return total;
+  };
+
   useEffect(() => {
     setDataProducts(products);
   }, [products]);
@@ -79,6 +88,7 @@ const useViewPayApplication = () => {
     showToast,
     setShowToast,
     finishSale,
+    calculteTotal,
   };
 };
 

@@ -34,6 +34,7 @@ const ViewPay: FC = () => {
     submit,
     showToast,
     finishSale,
+    calculteTotal,
   } = useViewPayApplication();
 
   // Components
@@ -71,6 +72,8 @@ const ViewPay: FC = () => {
                 ))}
               </div>
             ))}
+
+            <h3>Total de la compra: $ {calculteTotal(dataProducts)}</h3>
           </StyledSideLeft>
 
           <StyledSideRigth onSubmit={handleSubmit(submit)}>
