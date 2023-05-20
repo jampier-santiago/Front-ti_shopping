@@ -5,7 +5,7 @@ import useStyles from "styles";
 import logo from "assets/img/Logo_TI_Shopping.png";
 // import iconFacebook from "assets/icons/Logo-facebook.png";
 import iconTwitter from "assets/icons/Logo-twitter.png";
-import iconInstagram from "assets/icons/Logo-instagram.png";
+// import iconInstagram from "assets/icons/Logo-instagram.png";
 
 //controller
 import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail.application";
@@ -49,9 +49,9 @@ const ShopDetail = () => {
             {/* <a target="_blank" href={stores?.Facebook} rel="noreferrer">
               <img src={iconFacebook} alt="Logo-Facebook" />
             </a> */}
-            <a target="_blank" href={stores?.Instagram} rel="noreferrer">
+            {/* <a target="_blank" href={stores?.Instagram} rel="noreferrer">
               <img src={iconInstagram} alt="Logo-instagram" />
-            </a>
+            </a> */}
           </StyledIcon>
         </StyleLeftSection>
         <StyleRigthtSection>
