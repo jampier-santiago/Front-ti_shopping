@@ -2,9 +2,8 @@ import useFooterStyles from "./Footer.styles";
 
 //ASSETS
 import logo from "../../../assets/img/Logo_TI_Shopping.png";
-// import iconFacebook from "../../../assets/icons/Logo-facebook.png";
-// import iconTwitter from "../../../assets/icons/Logo-twitter.png";
-// import iconInstagram from "../../../assets/icons/Logo-instagram.png";
+import iconFacebook from "../../../assets/img/Logo-facebook.png";
+import iconInstagram from "../../../assets/img/Logo-instagram.png";
 
 const Footer = () => {
   const {
@@ -71,11 +70,11 @@ const Footer = () => {
           <StyledLink to="#">terms</StyledLink>
           <StyledLink to="#">©2023 All rights reserved</StyledLink>
         </StyledListLinks>
-        {/* <StyledIcon>
+        <StyledIcon>
           <img src={iconFacebook} alt="Logo-Facebook" />
-          <img src={iconTwitter} alt="Logo-Twitter" />
+          {/* <img src={iconTwitter} alt="Logo-Twitter" /> */}
           <img src={iconInstagram} alt="Logo-Instagram" />
-        </StyledIcon> */}
+        </StyledIcon>
       </StyledInfoLegal>
     </StyledFooter>
   );

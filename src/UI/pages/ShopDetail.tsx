@@ -1,32 +1,32 @@
-import useViews from "..";
+// import useViews from "..";
 import useStyles from "styles";
 
 //ASSETS
-import logo from "assets/img/Logo_TI_Shopping.png";
+// import logo from "assets/img/Logo_TI_Shopping.png";
 // import iconFacebook from "assets/icons/Logo-facebook.png";
-import iconTwitter from "assets/icons/Logo-twitter.png";
+// import iconTwitter from "assets/icons/Logo-twitter.png";
 // import iconInstagram from "assets/icons/Logo-instagram.png";
 
 //controller
 import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail.application";
-import Products from "./admin/products";
-import { store } from "redux/store";
+// import Products from "./admin/products";
+// import { store } from "redux/store";
 
 const ShopDetail = () => {
   //constroller
   const { stores } = useShopDetailApplications();
 
   //components
-  const { useComponents } = useViews();
-  const { Button, Input } = useComponents();
+  // const { useComponents } = useViews();
+  // const { Button, Input } = useComponents();
 
   //styles
   const { useShopDetailStyes } = useStyles();
   const {
     StyleMain,
-    StyleDecorationHero,
-    StyleSquareShop,
-    StyleSectionShop,
+    // StyleDecorationHero,
+    // StyleSquareShop,
+    // StyleSectionShop,
     StyleTittle,
     StyleSubTittle,
     StyleLeftSection,
