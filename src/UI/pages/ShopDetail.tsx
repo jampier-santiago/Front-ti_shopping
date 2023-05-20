@@ -3,7 +3,7 @@ import useStyles from "styles";
 
 //ASSETS
 import logo from "assets/img/Logo_TI_Shopping.png";
-import iconFacebook from "assets/icons/Logo-facebook.png";
+// import iconFacebook from "assets/icons/Logo-facebook.png";
 import iconTwitter from "assets/icons/Logo-twitter.png";
 import iconInstagram from "assets/icons/Logo-instagram.png";
 
@@ -46,9 +46,9 @@ const ShopDetail = () => {
           <StyleSubTittle>{stores?.Page_web}</StyleSubTittle>
           <StyleSubTittle>{stores?.Instagram}</StyleSubTittle>
           <StyledIcon>
-            <a target="_blank" href={stores?.Facebook} rel="noreferrer">
+            {/* <a target="_blank" href={stores?.Facebook} rel="noreferrer">
               <img src={iconFacebook} alt="Logo-Facebook" />
-            </a>
+            </a> */}
             <a target="_blank" href={stores?.Instagram} rel="noreferrer">
               <img src={iconInstagram} alt="Logo-instagram" />
             </a>
