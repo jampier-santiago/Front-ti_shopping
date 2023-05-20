@@ -56,6 +56,7 @@ const useProducDetailApplication = () => {
   useEffect(() => {
     moveSlider();
     getAllProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPositionSlider]);
 
   return { currentPositionSlider, handleCurrentPositionSlider, views, product };

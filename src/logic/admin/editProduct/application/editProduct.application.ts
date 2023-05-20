@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import endpoint from "logic/api/api.adapter";
 
 // interfaces
-import { ProductEditMake, ProductResponse } from "../data/editProduct.data";
+import { ProductResponse } from "../data/editProduct.data";
 import { CategoryResponse } from "../data/categories.data";
 
 const useEditProductApplication = () => {
@@ -65,6 +65,7 @@ const useEditProductApplication = () => {
   useEffect(() => {
     getCategories();
     getInfoProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { register, handleSubmit, onSubmit, errors, categories };

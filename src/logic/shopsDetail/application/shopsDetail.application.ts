@@ -25,6 +25,7 @@ const useShopDetailApplications = () => {
   //efects
   useEffect(() => {
     getAllStores();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { stores };

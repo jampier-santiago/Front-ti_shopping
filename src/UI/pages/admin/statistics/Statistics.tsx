@@ -33,7 +33,7 @@ const Statistics = () => {
   const { data, dataBar, options } = useStaticsApplication();
 
   // Redux
-  const { id } = useSelector((state: RootState) => state.auth);
+  // const { id } = useSelector((state: RootState) => state.auth);
 
   ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
   ChartJS.register(

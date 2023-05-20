@@ -129,6 +129,7 @@ const useStaticsApplication = () => {
   useEffect(() => {
     getSales();
     getAllProductsForSale();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { data, options, dataBar };
