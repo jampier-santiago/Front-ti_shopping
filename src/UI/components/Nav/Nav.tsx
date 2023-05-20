@@ -8,7 +8,7 @@ import useComponents from "..";
 
 //ASSETS
 import logo from "assets/img/Logo_TI_Shopping.png";
-import icono from "assets/icons/carrito-de-compras.png";
+import icono from "assets/img/carrito-de-compras.png";
 import iconMenu from "assets/icons/menu-dark.svg";
 import iconClose from "assets/icons/close.svg";
 
