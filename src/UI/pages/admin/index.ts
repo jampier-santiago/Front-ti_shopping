@@ -1,11 +1,13 @@
+import { lazy } from "react";
+
 // Pages
-import Statistics from "./statistics";
-import User from "./user";
-import Products from "./products";
-import EditProduct from "./EditProduct";
-import Users from "./users";
-import Stores from "./stores";
-import Store from "./store";
+const Statistics = lazy(() => import("./statistics"));
+const User = lazy(() => import("./user"));
+const Products = lazy(() => import("./products"));
+const EditProduct = lazy(() => import("./EditProduct"));
+const Users = lazy(() => import("./users"));
+const Stores = lazy(() => import("./stores"));
+const Store = lazy(() => import("./store"));
 
 const usePagesAdmin = () => {
   return { Statistics, User, Products, EditProduct, Users, Stores, Store };

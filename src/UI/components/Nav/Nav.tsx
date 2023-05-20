@@ -8,7 +8,7 @@ import useComponents from "..";
 
 //ASSETS
 import logo from "assets/img/Logo_TI_Shopping.png";
-import icono from "assets/icons/carrito-de-compras.png";
+import icono from "assets/img/carrito-de-compras.png";
 import iconMenu from "assets/icons/menu-dark.svg";
 import iconClose from "assets/icons/close.svg";
 
@@ -43,6 +43,7 @@ const Nav = () => {
     infoProducts,
     addProductToShoppingCar,
     removeProductOfShoppingCar,
+    goToUrl,
   } = useNavApplication();
 
   return (
@@ -93,7 +94,13 @@ const Nav = () => {
             </StyledContainerProducts>
 
             <StyledContainerButton>
-              <Button text="Terminar compra" />
+              <Button
+                text="Terminar compra"
+                onClick={() => {
+                  handleModalShopping();
+                  goToUrl("/compra/pagar");
+                }}
+              />
             </StyledContainerButton>
           </StyledModalShoppingCart>
         </Modal>
@@ -112,7 +119,7 @@ const Nav = () => {
               </StyledLink>
             </StyledCollis>
             <StyledCollis>
-              <StyledLink onClick={handleModal} to="/admin">
+              <StyledLink onClick={handleModal} to="/admin/estadisticas">
                 Admin
               </StyledLink>
             </StyledCollis>
@@ -122,7 +129,13 @@ const Nav = () => {
               </StyledLink>
             </StyledCollis>
             <StyledCollis>
-              <StyledLink onClick={handleModal} to="#">
+              <StyledLink
+                onClick={() => {
+                  handleModal();
+                  handleModalShopping();
+                }}
+                to="#"
+              >
                 Carrito de Compras
               </StyledLink>
             </StyledCollis>
@@ -139,7 +152,7 @@ const Nav = () => {
 
             <StyledLink to="/#productos">Productos</StyledLink>
 
-            <StyledLink to="/admin">Admin</StyledLink>
+            <StyledLink to="/admin/estadisticas">Admin</StyledLink>
 
             <StyledLink to="/login">Login</StyledLink>
 

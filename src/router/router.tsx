@@ -11,7 +11,8 @@ import useLayouts from "UI/layouts";
 
 const useRouter = () => {
   const { usePages } = useViews();
-  const { Home, Login, ShopView, ShopDetail, ProductDetail } = usePages();
+  const { Home, Login, ShopView, ShopDetail, ProductDetail, ViewPay } =
+    usePages();
   const { MainLayout } = useLayouts();
 
   return (
@@ -45,6 +46,14 @@ const useRouter = () => {
         element={
           <MainLayout>
             <ShopView />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/compra/pagar"
+        element={
+          <MainLayout>
+            <ViewPay />
           </MainLayout>
         }
       />

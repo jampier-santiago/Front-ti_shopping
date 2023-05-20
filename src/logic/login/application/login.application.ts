@@ -88,7 +88,7 @@ const useLoginApplication = () => {
 
     endpoint()
       .post({ url: `/auth/new-user`, data: dataEndpoint })
-      .then((result) => {
+      .then(() => {
         endpoint()
           .post<AxiosResponse>({
             url: `/auth/login`,
@@ -104,26 +104,32 @@ const useLoginApplication = () => {
 
             navigate("/admin/estadisticas");
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
+        if (!error.response.data) {
+          endpoint()
+            .post<AxiosResponse>({
+              url: `/auth/login`,
+              data: {
+                email,
+                password,
+              },
+            })
+            .then(async (result) => {
+              const data = result as unknown as ResponseLogin;
+
+              await dispatch(logIn(data) as any);
+
+              navigate("/admin/estadisticas");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
         console.log(error);
-        endpoint()
-          .post<AxiosResponse>({
-            url: `/auth/login`,
-            data: {
-              email,
-              password,
-            },
-          })
-          .then(async (result) => {
-            const data = result as unknown as ResponseLogin;
-
-            await dispatch(logIn(data) as any);
-
-            navigate("/admin/estadisticas");
-          })
-          .catch((error) => console.log(error));
       });
   };
 

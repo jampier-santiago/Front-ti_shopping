@@ -30,6 +30,7 @@ const useStoreApplication = () => {
   useEffect(() => {
     getInfoStore();
     getSales();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { sales };

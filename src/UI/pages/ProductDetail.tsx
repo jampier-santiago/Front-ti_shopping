@@ -5,7 +5,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "@react-three/drei";
 
 // Components
-import useViews from "..";
 
 // Styles
 import useStyles from "styles";
@@ -20,8 +19,7 @@ import model from "assets/models/mac.gltf";
 
 const ProductDetail: FC = () => {
   //components
-  const { useComponents } = useViews();
-  const { Button, Input } = useComponents();
+
   const { currentPositionSlider, handleCurrentPositionSlider, views, product } =
     useProducDetailApplication();
 
@@ -35,7 +33,7 @@ const ProductDetail: FC = () => {
     StyleIcon,
     StyleText,
     Styletitle,
-    StyleParagraph,
+    // StyleParagraph,
     StyleButton,
     StyledButtonNext,
     StyledBody,

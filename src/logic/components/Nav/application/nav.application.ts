@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
+import { useNavigate } from "react-router-dom";
 
 // Interfaces
 import { ResponseProductDetail } from "../../../producDetail/data/productDetail.models";
@@ -18,6 +19,8 @@ interface GroupStore {
 
 const useNavApplication = () => {
   const { products } = useSelector((state: RootState) => state.shoppingCart);
+
+  const navigate = useNavigate();
 
   // Actions
   const {
@@ -53,6 +56,10 @@ const useNavApplication = () => {
     removeProductInShoppingCar(product, idStore);
   };
 
+  const goToUrl = (url: string) => {
+    navigate(url);
+  };
+
   useEffect(() => {
     setInfoProductss(products);
   }, [products]);
@@ -65,6 +72,7 @@ const useNavApplication = () => {
     infoProducts,
     addProductToShoppingCar,
     removeProductOfShoppingCar,
+    goToUrl,
   };
 };
 export default useNavApplication;

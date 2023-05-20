@@ -41,7 +41,7 @@ const StyledIconMenu = styled.img`
 `;
 
 const StyledModalShoppingCart = styled.article`
-  ${tw`w-2/5 bg-white h-3/5 max-h-[500px] overflow-y-auto z-[101] rounded-2xl shadow-2xl`}
+  ${tw`w-[95%] h-[70%] lg:w-2/5 bg-white lg:h-3/5 max-h-[500px] overflow-y-auto z-[101] rounded-2xl shadow-2xl`}
 
   & h3 {
     ${tw`text-2xl font-medium text-center`}

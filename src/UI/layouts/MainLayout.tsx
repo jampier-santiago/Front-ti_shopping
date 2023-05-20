@@ -1,7 +1,5 @@
 // Packages
 import { FC } from "react";
-import styled from "styled-components";
-import tw from "twin.macro";
 
 // Components
 import useComponents from "UI/components";

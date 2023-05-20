@@ -1,12 +1,24 @@
-import Home from "./Home";
-import Login from "./Login";
+import { lazy } from "react";
+
 import usePagesAdmin from "./admin";
-import ShopView from "./ShopView";
-import ShopDetail from "./ShopDetail";
-import ProductDetail from "./ProductDetail";
+
+const Home = lazy(() => import("./Home"));
+const Login = lazy(() => import("./Login"));
+const ShopView = lazy(() => import("./ShopView"));
+const ShopDetail = lazy(() => import("./ShopDetail"));
+const ProductDetail = lazy(() => import("./ProductDetail"));
+const ViewPay = lazy(() => import("./ViewPay"));
 
 const usePages = () => {
-  return { Home, Login, usePagesAdmin, ShopView, ShopDetail, ProductDetail };
+  return {
+    Home,
+    Login,
+    usePagesAdmin,
+    ShopView,
+    ShopDetail,
+    ProductDetail,
+    ViewPay,
+  };
 };
 
 export default usePages;

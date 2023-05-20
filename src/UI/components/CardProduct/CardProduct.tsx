@@ -11,7 +11,7 @@ import Button from "../Button";
 // Styles
 import useCardProductStyles from "./cardProduct.styles";
 
-const CardProduct: FC<Props> = ({ action, id, image, name, urlSee }) => {
+const CardProduct: FC<Props> = ({ action, id, image, name, urlSee, price }) => {
   const navigate = useNavigate();
 
   // Styles
@@ -22,6 +22,8 @@ const CardProduct: FC<Props> = ({ action, id, image, name, urlSee }) => {
       <h3>{name}</h3>
 
       <img src={image} alt={name} />
+
+      <h3>$ {price}</h3>
 
       <StyledRowButtonCard>
         <Button text="Ver" onClick={() => navigate(urlSee)}></Button>

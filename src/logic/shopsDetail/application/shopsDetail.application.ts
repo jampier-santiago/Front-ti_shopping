@@ -41,7 +41,11 @@ const useShopDetailApplications = () => {
   //efects
   useEffect(() => {
     getAllStores();
+<<<<<<< HEAD
     getAllProducts();
+=======
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+>>>>>>> 580f7d9ff5cb19c42d9a458aacf67093bc86a0d9
   }, []);
 
   return { stores, products };

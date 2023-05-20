@@ -98,6 +98,7 @@ const Home = () => {
               action={(id) =>
                 addProductToShoppingCar(product.id_store || id, product)
               }
+              price={product.Price}
             />
           ))}
         </StyledGridProducts>

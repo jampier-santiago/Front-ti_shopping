@@ -1,4 +1,4 @@
-import useViews from "..";
+// import useViews from "..";
 import useStyles from "styles";
 
 //ASSETS
@@ -9,16 +9,16 @@ import iconInstagram from "../../assets/icons/Logo-instagram.png";
 
 //controller
 import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail.application";
-import Products from "./admin/products";
-import { store } from "redux/store";
+// import Products from "./admin/products";
+// import { store } from "redux/store";
 
 const ShopDetail = () => {
   //constroller
   const { stores, products } = useShopDetailApplications();
 
   //components
-  const { useComponents } = useViews();
-  const { Button, Input } = useComponents();
+  // const { useComponents } = useViews();
+  // const { Button, Input } = useComponents();
 
   //styles
   const { useShopDetailStyes } = useStyles();
@@ -46,12 +46,12 @@ const ShopDetail = () => {
           <StyleSubTittle>{stores?.Page_web}</StyleSubTittle>
           <StyleSubTittle>{stores?.Instagram}</StyleSubTittle>
           <StyledIcon>
-            <a target="_blank" href={stores?.Facebook}>
+            {/* <a target="_blank" href={stores?.Facebook} rel="noreferrer">
               <img src={iconFacebook} alt="Logo-Facebook" />
-            </a>
-            <a target="_blank" href={stores?.Instagram}>
+            </a> */}
+            {/* <a target="_blank" href={stores?.Instagram} rel="noreferrer">
               <img src={iconInstagram} alt="Logo-instagram" />
-            </a>
+            </a> */}
           </StyledIcon>
         </StyleLeftSection>
         <StyleRigthtSection

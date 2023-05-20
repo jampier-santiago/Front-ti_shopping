@@ -83,5 +83,13 @@ export const useActionsShoppingCart = () => {
     dispatch(removeProduct(temporaryData));
   };
 
-  return { addProductToShoppingCar, removeProductInShoppingCar };
+  const restartDataSale = () => {
+    dispatch(resetShoppingCart);
+  };
+
+  return {
+    addProductToShoppingCar,
+    removeProductInShoppingCar,
+    restartDataSale,
+  };
 };
