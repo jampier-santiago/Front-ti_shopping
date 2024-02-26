@@ -1,4 +1,4 @@
-// import useViews from "..";
+// Styles
 import useStyles from "styles";
 
 //ASSETS
@@ -15,10 +15,6 @@ import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail
 const ShopDetail = () => {
   //constroller
   const { stores } = useShopDetailApplications();
-
-  //components
-  // const { useComponents } = useViews();
-  // const { Button, Input } = useComponents();
 
   //styles
   const { useShopDetailStyes } = useStyles();

@@ -75,19 +75,17 @@ const useLoginApplication = () => {
     }
 
     const dataEndpoint = {
-      firstName: userName.split(" ")[0],
-      secondName: userName.split(" ")[1] || "",
-      surname: surname.split(" ")[0],
-      secondSurname: surname.split(" ")[1],
+      name: userName.trim(),
+      lastName: surname.trim(),
       phoneNumber,
       email,
       address,
       password,
-      birthDate,
+      bornDate: birthDate,
     };
 
     endpoint()
-      .post({ url: `/auth/new-user`, data: dataEndpoint })
+      .post({ url: `/users`, data: dataEndpoint })
       .then(() => {
         endpoint()
           .post<AxiosResponse>({

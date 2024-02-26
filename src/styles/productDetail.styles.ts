@@ -10,7 +10,7 @@ const StyledBody = styled.section`
 `;
 
 const StyledViewSlider = styled.article`
-  ${tw`flex-shrink-0 w-full h-full bg-green-300 bg-center bg-cover`}
+  ${tw`flex-shrink-0 w-full h-full bg-[#F8F7F7] bg-center bg-no-repeat bg-contain`}
 `;
 
 const StyledSectionImages = styled.div`

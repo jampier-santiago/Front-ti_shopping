@@ -6,41 +6,39 @@ const StyledDiv = styled.div`
 `;
 
 const StyleMain = styled.header`
-  ${tw` w-full flex justify-center items-center bg-white  text-red-500 relative overflow-hidden  `}
+  ${tw`relative flex items-center justify-center w-full overflow-hidden text-red-500 bg-white `}
 `;
 
 const StyleDecorationHero = styled.div`
-  ${tw`absolute left-0 bg-black top-0 bottom-0 right-0 `}
+  ${tw`absolute top-0 bottom-0 left-0 right-0 bg-black `}
 `;
 
 const StyleSquareShop = styled.div`
-  ${tw`w-80 rounded-xl bg-center bg-cover cursor-pointer `}
+  ${tw`bg-center bg-cover cursor-pointer w-80 rounded-xl `}
 `;
 
 const StyleSectionShop = styled.section`
-  ${tw`grid grid-cols-3 mx-auto max-w-screen-lg `}
+  ${tw`grid max-w-screen-lg grid-cols-3 mx-auto `}
 `;
 
 const StyleTittle = styled.h1`
-  ${tw`text-black text-5xl flex justify-center `}
+  ${tw`flex justify-center text-5xl text-black `}
 `;
 
 const StyleSubTittle = styled.h2`
-  ${tw` text-black   flex 
-
-  `}
+  ${tw`flex text-black `}
 `;
 const StyleLeftSection = styled.section`
-  ${tw`lg:w-4/6 box-border  p-10   `}
+  ${tw`box-border p-10 lg:w-4/6 `}
 `;
 const StyleRigthtSection = styled.div`
   & img {
-    ${tw`w-80 h-80  `}
+    ${tw`w-80 h-80 `}
   }
 `;
 
 const StyledIcon = styled.div`
-  ${tw`flex items-center  space-x-4 bg-red-500`}
+  ${tw`flex items-center space-x-4 bg-red-500`}
 `;
 const useShopDetailStyes = () => {
   return {

@@ -122,10 +122,6 @@ const ProductDetail: FC = () => {
           <StyleButton>COMPRAR</StyleButton>
         </StyleArticle>
       </StyledBody>
-
-      <section>
-        <h2>Aquí va la descripción larga del producto (carateristicas)</h2>
-      </section>
     </StyleMain>
   );
 };
