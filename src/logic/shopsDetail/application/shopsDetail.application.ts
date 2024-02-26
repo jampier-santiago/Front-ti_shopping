@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { ResponseShopDetail } from "../data/shopsDetail.models";
+import {
+  ResponseShopDetail,
+  ResponseProducts,
+} from "../data/shopsDetail.models";
 import { useParams } from "react-router-dom";
 
 // Endpoints
@@ -9,6 +12,7 @@ const useShopDetailApplications = () => {
 
   //states
   const [stores, setStores] = useState<ResponseShopDetail>();
+  const [products, setProducts] = useState<Array<ResponseProducts>>();
 
   //functions
   const getAllStores = () => {
@@ -22,13 +26,26 @@ const useShopDetailApplications = () => {
       .catch((error) => console.log(error));
   };
 
+  //functions
+  const getAllProducts = () => {
+    endpoint()
+      .get({
+        url: `/products/store/${params.id}`,
+      })
+      .then((result) => {
+        setProducts(result as unknown as Array<ResponseProducts>);
+      })
+      .catch((error) => console.log(error));
+  };
+
   //efects
   useEffect(() => {
     getAllStores();
+    getAllProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { stores };
+  return { stores, products };
 };
 
 export default useShopDetailApplications;

@@ -14,7 +14,7 @@ import useShopDetailApplications from "logic/shopsDetail/application/shopsDetail
 
 const ShopDetail = () => {
   //constroller
-  const { stores } = useShopDetailApplications();
+  const { stores, products } = useShopDetailApplications();
 
   //styles
   const { useShopDetailStyes } = useStyles();
@@ -28,6 +28,7 @@ const ShopDetail = () => {
     StyleLeftSection,
     StyleRigthtSection,
     StyledIcon,
+    StyleSectionShop,
   } = useShopDetailStyes();
 
   return (
@@ -54,6 +55,25 @@ const ShopDetail = () => {
           <img src={stores?.logo} alt="Logo tienda" />
         </StyleRigthtSection>
       </StyleMain>
+      <StyleSectionShop>
+        {products &&
+          products.map((product) => (
+            // <StyleSquareShop
+            //   key={product?.Id_product}
+            //   style={{
+            //     backgroundImage: `url('${(product?.image.split(","))[0]}')`,
+            //   }}
+            // ></StyleSquareShop>
+            <CardProduct
+              id={product.Id_product.toString()}
+              image={product.image.split(",")[0]}
+              action={() => {}}
+              name={product.Name_product}
+              price={product.Price}
+              urlSee={`/productos/${product.Id_product.toString()}`}
+            ></CardProduct>
+          ))}
+      </StyleSectionShop>
     </main>
   );
 };
